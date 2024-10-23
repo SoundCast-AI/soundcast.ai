@@ -1,5 +1,4 @@
 import { Shield } from "lucide-react";
-import Navbar from "../components/Navbar";
 import Video2 from "../assets/video2.mp4";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
@@ -8,7 +7,6 @@ const LandingPage = () => {
   return (
     <div>
       <div className="min-h-screen bg-black text-white">
-        <Navbar />
         <div className="relative w-full h-screen">
           <video
             src={Video2}
@@ -48,7 +46,7 @@ const LandingPage = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8 max-w-7xl mx-auto">
+        <div className="grid grid-rows-3 md:grid-cols-2 lg:grid-cols-3 sm:grid-rows-2 gap-6 p-8 max-w-7xl mx-auto">
           <div className="bg-gradient-to-l from-[#3d3d3d] to-[#000000] border-2 border-[#a19191]  p-6 rounded-xl ">
             <h3 className="text-xl font-semibold mb-4">Easy Integration</h3>
             <p className="text-gray-400">
@@ -56,7 +54,7 @@ const LandingPage = () => {
               and other tools to maximize your productivity.
             </p>
           </div>
-          <div className="bg-gradient-to-r from-[#3d3d3d] to-[#000000]  border-2 border-[#a19191] p-6 rounded-xl row-span-2">
+          <div className="bg-gradient-to-r from-[#3d3d3d] to-[#000000]  border-2 border-[#a19191] p-6 rounded-xl row-span-1 md:row-span-2 lg:row-span-2">
             <div className="flex justify-between items-start">
               <h3 className="text-xl font-semibold mb-4">
                 Secure And Reliable
@@ -134,25 +132,25 @@ const LandingPage = () => {
           </p>
         </div>
         <div className="bg-black text-white  py-12">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  sm:grid-rows-2 gap-8">
             <div>
               <h3 className="text-purple-500 text-lg font-bold mb-4">
                 USER DATA
               </h3>
-              <div className="flex flex-wrap justify-center gap-8  border-t-2  border-[#5b5b5b] ">
-                <div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 border-t-2 border-[#5b5b5b] mt-6">
+                <div className="text-center">
                   <h4 className="text-4xl font-bold mt-4">30M+</h4>
                   <p className="text-gray-400">Total Users</p>
                 </div>
-                <div>
+                <div className="text-center">
                   <h4 className="text-4xl font-bold mt-4">4M+</h4>
                   <p className="text-gray-400">Daily Unique IP(ATH)</p>
                 </div>
-                <div>
+                <div className="text-center">
                   <h4 className="text-4xl font-bold mt-4">2B+</h4>
                   <p className="text-gray-400">Assets Volume</p>
                 </div>
-                <div>
+                <div className="text-center">
                   <h4 className="text-4xl font-bold mt-4">~20M</h4>
                   <p className="text-gray-400">Processed AA UserOps</p>
                 </div>
@@ -162,12 +160,12 @@ const LandingPage = () => {
               <h3 className="text-purple-500 text-lg font-bold mb-4">
                 DEVELOPER DATA
               </h3>
-              <div className="flex flex-wrap justify-center gap-8  border-t-2  border-[#5b5b5b] ">
-                <div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 border-t-2 border-[#5b5b5b] mt-6">
+                <div className="text-center">
                   <h4 className="text-4xl font-bold mt-4">60K+</h4>
                   <p className="text-gray-400">Developers Using SDKs</p>
                 </div>
-                <div>
+                <div className="text-center">
                   <h4 className="text-4xl font-bold mt-4">400K+</h4>
                   <p className="text-gray-400">Monthly SDK Downloads</p>
                 </div>
@@ -177,16 +175,16 @@ const LandingPage = () => {
               <h3 className="text-purple-500 text-lg font-bold mb-4">
                 COMMUNITY DATA
               </h3>
-              <div className="flex flex-wrap justify-center gap-8  border-t-2  border-[#5b5b5b] ">
-                <div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 border-t-2 border-[#5b5b5b] mt-6">
+                <div className="text-center">
                   <h4 className="text-4xl font-bold mt-4">900K+</h4>
                   <p className="text-gray-400">Twitter Followers</p>
                 </div>
-                <div>
+                <div className="text-center">
                   <h4 className="text-4xl font-bold mt-4">580K+</h4>
                   <p className="text-gray-400">Discord Members</p>
                 </div>
-                <div>
+                <div className="text-center">
                   <h4 className="text-4xl font-bold mt-4">120K+</h4>
                   <p className="text-gray-400">
                     Exclusive Community Assets Holders
@@ -198,16 +196,16 @@ const LandingPage = () => {
               <h3 className="text-purple-500 text-lg font-bold mb-4 text-left">
                 BTC CONNECT
               </h3>
-              <div className="flex flex-wrap justify-center gap-8  border-t-2  border-[#5b5b5b] ">
-                <div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 border-t-2 border-[#5b5b5b] mt-6">
+                <div className="text-center">
                   <h4 className="text-4xl font-bold mt-4">900K+</h4>
                   <p className="text-gray-400">Connected BTC Wallets</p>
                 </div>
-                <div>
+                <div className="text-center">
                   <h4 className="text-4xl font-bold mt-4">300K+</h4>
                   <p className="text-gray-400">Deployed BTC Smart Accounts</p>
                 </div>
-                <div>
+                <div className="text-center">
                   <h4 className="text-4xl font-bold mt-4">1.5M+</h4>
                   <p className="text-gray-400">Total Transactions</p>
                 </div>
