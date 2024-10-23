@@ -1,8 +1,8 @@
-import React from "react";
 import { Shield } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Video2 from "../assets/video2.mp4";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const LandingPage = () => {
   return (
@@ -36,6 +36,18 @@ const LandingPage = () => {
             </p>
           </div>
         </div>
+        <hr className="border-t-2 border-[#696060]" />
+        <div className="text-center mt-20 px-4">
+          <h1 className="text-5xl mt-8 mb-4">
+            Unlock Potential With Cutting-Edge
+            <br />
+            Machine Learning Technologies
+          </h1>
+          <p className="text-gray-400 mb-12">
+            Comprehensive resources, tutorials, and real-world applications.
+          </p>
+        </div>
+
         <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8 max-w-7xl mx-auto">
           <div className="bg-gradient-to-l from-[#3d3d3d] to-[#000000] border-2 border-[#a19191]  p-6 rounded-xl ">
             <h3 className="text-xl font-semibold mb-4">Easy Integration</h3>
@@ -109,6 +121,8 @@ const LandingPage = () => {
             </p>
           </div>
         </div>
+        <hr className="border-t-2 border-[#696060]" />
+
         <div className="text-center mt-20 px-4">
           <h1 className="text-5xl mt-8 mb-4">
             Unlock Potential With Cutting-Edge
@@ -201,6 +215,10 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
+
+        <hr className="border-t-2 border-[#696060]" />
+
+        <Footer />
       </div>
     </div>
   );

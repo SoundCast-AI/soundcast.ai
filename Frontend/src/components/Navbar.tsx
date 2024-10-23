@@ -3,7 +3,7 @@ const Navbar = () => {
     <div>
       {/* Navigation */}
       <nav className="flex items-center justify-center p-3">
-        <div className="flex items-center bg-black  border-[1px] border-indigo-200 border-l-[#888491] border-t-[#4d4d4d] border-r-[#888491] border-b-[#888491] p-2 rounded-md">
+        <div className="flex items-center border-[1px] border-indigo-200 border-l-[#888491] border-t-[#4d4d4d] border-r-[#888491] border-b-[#888491] p-2 rounded-md">
           <div className="bg-purple-600 p-2 rounded-sm">
             <div className="w-6 h-6"></div>
           </div>

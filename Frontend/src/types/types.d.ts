@@ -1,8 +1,9 @@
 export interface Character {
   id: number;
-  title: string;
+  name: string;
+  creator: string;
+  description: string;
   image: string;
-  url: string;
   type: string;
 }
 

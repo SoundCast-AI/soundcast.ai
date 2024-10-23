@@ -2,24 +2,31 @@ import { CarouselProps } from "../types/types";
 
 const Carousel: React.FC<CarouselProps> = ({ selectedFilter }) => {
   return (
-    <div className="h-screen bg-black pt-10 p-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 bg-black">
+    <div className="pt-10 p-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {selectedFilter.map((characters) => (
           <div
             key={characters.id}
-            className=" bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500  group cursor-pointer overflow-hidden"
+            className="flex border border-[#a19191] rounded-lg group cursor-pointer overflow-hidden hover:shadow-lg transition-shadow duration-300"
           >
-            <div className="p-0">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img
-                  src={characters.image}
-                  alt={characters.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-lg font-medium">{characters.title}</h3>
-              </div>
+            {/* Image Section */}
+            <div className="w-[20rem] h-[20rem] overflow-hidden">
+              <img
+                src={characters.image}
+                alt={characters.name}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 "
+              />
+            </div>
+
+            {/* Content Section */}
+            <div className="p-6 flex flex-col justify-center space-y-2 bg-gradient-to-r from-gray-800 via-gray-900 to-black rounded-r-lg">
+              <h3 className="text-2xl font-semibold text-white">
+                {characters.name}
+              </h3>
+              <h4 className="text-lg font-medium text-gray-300">
+                {characters.creator}
+              </h4>
+              <p className="text-sm text-gray-400">{characters.description}</p>
             </div>
           </div>
         ))}
