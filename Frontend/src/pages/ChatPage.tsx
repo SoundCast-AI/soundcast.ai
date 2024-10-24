@@ -2,8 +2,15 @@ import { useState } from "react";
 import ExploreImage from "../assets/exploreimage.png";
 import { Send, Phone } from "lucide-react";
 
+interface Message {
+  sender: string;
+  content: string;
+  avatar?: string;
+  timestamp?: string;
+}
+
 const ChatPage = () => {
-  const [messages, setMessages] = useState([
+  const [messages, setMessages] = useState<Message[]>([
     {
       sender: "bot",
       content:
@@ -13,7 +20,7 @@ const ChatPage = () => {
   ]);
   const [inputValue, setInputValue] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
 
