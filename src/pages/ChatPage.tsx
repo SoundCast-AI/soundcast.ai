@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ExploreImage from "../assets/exploreimage.png";
 import { Send, Phone } from "lucide-react";
+import { chatWithInfluencerByID } from "../apis/influencer-apis";
 
 interface Message {
   sender: string;
@@ -18,21 +19,37 @@ const ChatPage = () => {
       avatar: "/api/placeholder/32/32",
     },
   ]);
-  const [inputValue, setInputValue] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputValue.trim()) return;
 
-    setMessages([
-      ...messages,
+    setInputValue("");
+    setMessages((prev) => [
+      ...prev,
       {
         sender: "user",
         content: inputValue,
         timestamp: new Date().toLocaleTimeString(),
       },
     ]);
-    setInputValue("");
+
+    const botResponse = await chatWithInfluencerByID({
+      id: "1",
+      message: inputValue,
+    });
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        sender: "bot",
+        content: botResponse,
+        timestamp: new Date().toLocaleTimeString(),
+      },
+    ]);
   };
 
   return (
@@ -44,9 +61,11 @@ const ChatPage = () => {
           className="rounded-full h-[8rem] w-[8rem] md:h-[11rem] md:w-[11rem] shadow-2xl border-4 border-gray-800"
         />
       </div>
+
       <h1 className="text-white text-2xl md:text-3xl font-bold text-center pt-4">
         Interviewer
       </h1>
+
       <h2 className="text-gray-400 text-center">By @test</h2>
 
       <div className="flex justify-center items-center flex-1 p-4 md:p-8">
@@ -95,17 +114,20 @@ const ChatPage = () => {
               placeholder="Send a message..."
               className="w-full p-3 pl-4 pr-12 rounded-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
             />
+
             <button
               type="button"
               className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-300"
             ></button>
           </div>
+
           <button
             type="submit"
             className="p-3 rounded-full bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
           >
             <Send className="w-6 h-6" />
           </button>
+
           <button
             type="button"
             className="p-3 rounded-full bg-gray-800 text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all duration-200"

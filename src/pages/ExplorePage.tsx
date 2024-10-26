@@ -10,6 +10,14 @@ const ExplorePage: React.FC = () => {
   const characters: Character[] = [
     {
       id: 1,
+      name: "Sadguru",
+      description: "Indian Mystic and Spiritual Leader",
+      creator: "#",
+      image: ExploreImage,
+      type: "For you",
+    },
+    {
+      id: 0,
       name: "Weirdoh Birds",
       description: "Weirdoh Birds is a collection of 10,000 unique birds.",
       creator: "#",

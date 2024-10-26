@@ -13,9 +13,11 @@ export type TInfluencer = {
   prompt: string;
 };
 
-const getInfluencerByID = async (id: string): Promise<TInfluencer | null> => {
+export const getInfluencerByID = async (
+  id: string
+): Promise<TInfluencer | null> => {
   try {
-    const response = await axiosBase.get(`/influencers/get/${id}`);
+    const response = await axiosBase.get(`/influencer/get/${id}`);
 
     return response.data as TInfluencer | null;
   } catch (e: unknown) {
@@ -23,7 +25,7 @@ const getInfluencerByID = async (id: string): Promise<TInfluencer | null> => {
   }
 };
 
-const chatWithInfluencerByID = async ({
+export const chatWithInfluencerByID = async ({
   id,
   message,
 }: {
@@ -31,7 +33,7 @@ const chatWithInfluencerByID = async ({
   message: string;
 }): Promise<string> => {
   try {
-    const response = await axiosBase.post(`/influencers/chat/${id}`, {
+    const response = await axiosBase.post(`/influencer/chat/${id}`, {
       message,
     });
 
