@@ -2,6 +2,7 @@ import { useState } from "react";
 import ExploreImage from "../assets/exploreimage.png";
 import { Send, Phone } from "lucide-react";
 import { chatWithInfluencerByID } from "../apis/influencer-apis";
+import CircularLoader from "../components/circular-loader";
 
 interface Message {
   sender: string;
@@ -23,37 +24,45 @@ const ChatPage = () => {
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!inputValue.trim()) return;
+  async function handleSubmit(e: React.FormEvent) {
+    try {
+      e.preventDefault();
+      if (!inputValue.trim()) return;
 
-    setInputValue("");
-    setMessages((prev) => [
-      ...prev,
-      {
-        sender: "user",
-        content: inputValue,
-        timestamp: new Date().toLocaleTimeString(),
-      },
-    ]);
+      setIsLoading(true);
 
-    const botResponse = await chatWithInfluencerByID({
-      id: "1",
-      message: inputValue,
-    });
+      setMessages((prev) => [
+        ...prev,
+        {
+          sender: "user",
+          content: inputValue,
+          timestamp: new Date().toLocaleTimeString(),
+        },
+      ]);
+      setInputValue("");
 
-    setMessages((prev) => [
-      ...prev,
-      {
-        sender: "bot",
-        content: botResponse,
-        timestamp: new Date().toLocaleTimeString(),
-      },
-    ]);
-  };
+      const botResponse = await chatWithInfluencerByID({
+        id: "1",
+        message: inputValue,
+      });
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          sender: "bot",
+          content: botResponse,
+          timestamp: new Date().toLocaleTimeString(),
+        },
+      ]);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   return (
-    <div className="bg-black h-screen flex flex-col">
+    <div className="bg-black h-screen flex flex-col overflow-auto">
       <div className="flex justify-center pt-10">
         <img
           src={ExploreImage}
@@ -104,8 +113,13 @@ const ChatPage = () => {
         </div>
       </div>
 
+      {isLoading && <CircularLoader />}
+
       <form onSubmit={handleSubmit} className="flex justify-center m-4">
-        <div className="flex items-center space-x-3 w-full max-w-2xl px-4">
+        <fieldset
+          className="flex items-center space-x-3 w-full max-w-2xl px-4"
+          disabled={isLoading}
+        >
           <div className="relative flex-1">
             <input
               type="text"
@@ -134,7 +148,7 @@ const ChatPage = () => {
           >
             <Phone className="w-6 h-6" />
           </button>
-        </div>
+        </fieldset>
       </form>
     </div>
   );
