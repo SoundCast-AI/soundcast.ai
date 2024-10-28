@@ -1,9 +1,10 @@
 export interface Character {
   id: number;
-  name: string;
   creator: string;
   description: string;
   image: string;
+  welcomeMessage: string;
+  name: string;
   type: string;
 }
 

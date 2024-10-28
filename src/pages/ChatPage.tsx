@@ -1,8 +1,10 @@
-import { useState } from "react";
-import ExploreImage from "../assets/exploreimage.png";
+import { useEffect, useState } from "react";
 import { Send, Phone } from "lucide-react";
 import { chatWithInfluencerByID } from "../apis/influencer-apis";
 import CircularLoader from "../components/circular-loader";
+import { useSearchParams } from "react-router-dom";
+import { Character } from "../types/types";
+import { characters } from "../utils/data";
 
 interface Message {
   sender: string;
@@ -11,18 +13,41 @@ interface Message {
   timestamp?: string;
 }
 
-const ChatPage = () => {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      sender: "bot",
-      content:
-        "Greetings! I'm here to chat and help you stay positive throughout the day. Whether you're feeling down or overwhelmed, I'll be here to support you. How can I brighten your day?",
-      avatar: "/api/placeholder/32/32",
-    },
-  ]);
+function ChatPage() {
+  const [searchParams] = useSearchParams();
+  const [character, setCharacter] = useState<Character | null | undefined>(
+    null
+  );
+
+  const [messages, setMessages] = useState<Message[]>([]);
 
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const id = searchParams.get("id");
+
+    if (!id) return;
+
+    const character = characters.find(
+      (character) => character.id === Number(id)
+    );
+    setCharacter(character);
+
+    return () => {};
+  }, [searchParams]);
+
+  useEffect(() => {
+    if (!character) return;
+
+    setMessages([
+      {
+        sender: "bot",
+        content: character.welcomeMessage,
+        avatar: character.image,
+      },
+    ]);
+  }, [character]);
 
   async function handleSubmit(e: React.FormEvent) {
     try {
@@ -61,21 +86,24 @@ const ChatPage = () => {
     }
   }
 
+  if (character === null) return <CircularLoader />;
+  if (character === undefined) return <div>Character not found</div>;
+
   return (
     <div className="bg-black h-screen flex flex-col overflow-auto">
       <div className="flex justify-center pt-10">
         <img
-          src={ExploreImage}
+          src={character.image}
           alt=""
           className="rounded-full h-[8rem] w-[8rem] md:h-[11rem] md:w-[11rem] shadow-2xl border-4 border-gray-800"
         />
       </div>
 
       <h1 className="text-white text-2xl md:text-3xl font-bold text-center pt-4">
-        Interviewer
+        {character.name}
       </h1>
 
-      <h2 className="text-gray-400 text-center">By @test</h2>
+      <h2 className="text-gray-400 text-center">{character.description}</h2>
 
       <div className="flex justify-center items-center flex-1 p-4 md:p-8">
         <div className="w-full max-w-2xl">
@@ -152,6 +180,6 @@ const ChatPage = () => {
       </form>
     </div>
   );
-};
+}
 
 export default ChatPage;

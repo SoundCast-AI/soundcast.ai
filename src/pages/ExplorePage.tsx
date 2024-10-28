@@ -1,70 +1,12 @@
 import React, { useState } from "react";
 import Carousel from "../components/Carousel";
 import ExploreImage from "../assets/exploreimage.png";
-import { Character } from "../types/types";
 import Footer from "../components/Footer";
 import { Search } from "lucide-react";
+import { characters } from "../utils/data";
+
 const ExplorePage: React.FC = () => {
   const [selectedType, setSelectedType] = useState<string>("For you");
-
-  const characters: Character[] = [
-    {
-      id: 1,
-      name: "Sadguru",
-      description: "Indian Mystic and Spiritual Leader",
-      creator: "#",
-      image: ExploreImage,
-      type: "For you",
-    },
-    {
-      id: 0,
-      name: "Weirdoh Birds",
-      description: "Weirdoh Birds is a collection of 10,000 unique birds.",
-      creator: "#",
-      image: ExploreImage,
-      type: "For you",
-    },
-    {
-      id: 2,
-      name: "Weirdoh Birds",
-      description: "Weirdoh Birds is a collection of 10,000 unique birds.",
-      creator: "#",
-      image: ExploreImage,
-      type: "Featured",
-    },
-    {
-      id: 3,
-      name: "Weirdoh Birds",
-      description: "Weirdoh Birds is",
-      creator: "#",
-      image: ExploreImage,
-      type: "For you",
-    },
-    {
-      id: 4,
-      name: "Weirdoh Birds",
-      description: "Weirdoh Birds is a collection of 10,000 unique birds.",
-      creator: "#",
-      image: ExploreImage,
-      type: "Featured",
-    },
-    {
-      id: 5,
-      name: "Weirdoh Birds",
-      description: "Weirdoh Birds is a collection of 10,000 unique birds.",
-      creator: "#",
-      image: ExploreImage,
-      type: "Try these",
-    },
-    {
-      id: 6,
-      name: "Weirdoh Birds",
-      description: "Weirdoh Birds is a collection of 10,000 unique birds.",
-      creator: "#",
-      image: ExploreImage,
-      type: "Try these",
-    },
-  ];
 
   const selectedFilter =
     selectedType === "For you"
