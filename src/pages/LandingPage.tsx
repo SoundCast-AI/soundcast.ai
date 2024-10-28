@@ -134,7 +134,7 @@ const LandingPage = () => {
         <div className="bg-black text-white  py-12">
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  sm:grid-rows-2 gap-8">
             <div>
-              <h3 className="text-purple-500 text-lg font-bold mb-4">
+              <h3 className="text-purple-500 text-lg font-bold mb-4 text-center md:text-left lg:text-left ">
                 USER DATA
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 border-t-2 border-[#5b5b5b] mt-6">
@@ -157,7 +157,7 @@ const LandingPage = () => {
               </div>
             </div>
             <div>
-              <h3 className="text-purple-500 text-lg font-bold mb-4">
+              <h3 className="text-purple-500 text-lg font-bold mb-4 text-center md:text-left lg:text-left ">
                 DEVELOPER DATA
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 border-t-2 border-[#5b5b5b] mt-6">
@@ -172,7 +172,7 @@ const LandingPage = () => {
               </div>
             </div>
             <div>
-              <h3 className="text-purple-500 text-lg font-bold mb-4">
+              <h3 className="text-purple-500 text-lg font-bold mb-4 text-center md:text-left lg:text-left ">
                 COMMUNITY DATA
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 border-t-2 border-[#5b5b5b] mt-6">
@@ -193,7 +193,7 @@ const LandingPage = () => {
               </div>
             </div>
             <div>
-              <h3 className="text-purple-500 text-lg font-bold mb-4 text-left">
+              <h3 className="text-purple-500 text-lg font-bold mb-4 text-center md:text-left lg:text-left ">
                 BTC CONNECT
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 border-t-2 border-[#5b5b5b] mt-6">
