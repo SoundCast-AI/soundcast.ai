@@ -11,4 +11,14 @@ export const characters: Character[] = [
     creator: "#",
     type: "For you",
   },
+  {
+    id: 2,
+    name: "Elon Musk",
+    description: "Elon Musk: Entrepreneur and Billionaire",
+    image: "/exploreimage.png",
+    welcomeMessage:
+      "Hi, I'm Elon Musk. I'm here to help you with your business and technology queries.",
+    creator: "#",
+    type: "For you",
+  },
 ];

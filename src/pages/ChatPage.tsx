@@ -77,6 +77,7 @@ function ChatPage() {
           sender: "bot",
           content: botResponse,
           timestamp: new Date().toLocaleTimeString(),
+          avatar: character?.image,
         },
       ]);
     } catch (error) {
