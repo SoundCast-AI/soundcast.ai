@@ -1,31 +1,31 @@
 import { NextSeo } from "next-seo";
-// import Page from "@/components/page";
-// import Header from "@/components/header";
-// import VideoSection from "@/components/video-section";
-// import ListSection from "@/components/list-section";
-// import FeatureSection from "@/components/feature-section";
-// import CasesSection from "@/components/cases-section";
-// import SocialProof from "@/components/social-proof";
-// import PricingTable from "@/components/pricing-table";
-// import Footer from "@/components/footer";
+import Page from "@/components/landing/page";
+import Header from "@/components/landing/header";
+import VideoSection from "@/components/landing/video-section";
+import ListSection from "@/components/landing/list-section";
+import FeatureSection from "@/components/landing/feature-section";
+import CasesSection from "@/components/landing/cases-section";
+import SocialProof from "@/components/landing/social-proof";
+import PricingTable from "@/components/landing/pricing-table";
+import Footer from "@/components/landing/footer";
 
 export default function Home() {
   return (
-    <div>
+    <Page>
       <NextSeo
         title="SoundCast.ai"
         description="Intelligent Voice with SoundCast.ai"
       />
-      {/* <Header /> */}
+      <Header />
       <main>
-        {/* <VideoSection />
+        <VideoSection />
         <ListSection />
         <FeatureSection />
         <CasesSection />
         <SocialProof />
-        <PricingTable /> */}
+        <PricingTable />
       </main>
-      {/* <Footer /> */}
-    </div>
+      <Footer />
+    </Page>
   );
 }
