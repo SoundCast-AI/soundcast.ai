@@ -10,16 +10,18 @@ const Header = () => (
     <div className={cn(`max-w-4xl mx-auto py-16 px-14 sm:px-6 lg:px-8`)}>
       <h1
         className={cn(
-          `font-sans font-bold text-4xl md:text-5xl lg:text-8xl text-center leading-snug text-gray-800`
+          `font-sans font-bold text-4xl md:text-5xl lg:text-8xl text-center leading-snug text-gray-800`,
+          `bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent`
         )}
       >
-        Your website, beyond expectations
+        SoundCast
+        <span className="text-gray-800">.ai</span>
       </h1>
       <div className={cn(`max-w-xl mx-auto`)}>
         <p
           className={cn(`mt-10 text-gray-500 text-center text-xl lg:text-3xl`)}
         >
-          Make your website wonderful and build beyond your expectations.
+          Making Voice Intelligent with AI
         </p>
       </div>
       <div

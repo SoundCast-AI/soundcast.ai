@@ -44,7 +44,7 @@ const Footer = () => (
           width={48}
           height={48}
         />
-        <p className={cn(`text-4xl text-indigo-500 font-bold`)}>STARTD</p>
+        <p className={cn(`text-4xl text-indigo-500 font-bold`)}>SoundCast</p>
       </div>
       <div className={cn(`w-full lg:w-1/2`)}>
         <ul className={cn(`text-lg font-light flex flex-wrap w-full`)}>
