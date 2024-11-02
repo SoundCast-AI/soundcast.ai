@@ -1,1 +1,1 @@
-export const CHAT_BACKEND_URL = "http://localhost:3001";
+export const CHAT_BACKEND_URL = process.env.NEXT_PUBLIC_CHAT_BACKEND_URL;
