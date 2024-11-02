@@ -3,5 +3,6 @@ type TInfluencer = {
   name: string;
   imageUrl: string;
   description: string;
+  welcomeText: string;
   prompt: string;
 };

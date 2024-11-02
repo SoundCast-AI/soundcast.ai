@@ -29,7 +29,7 @@ export default function ChatPage(props: TInfluencer) {
   const [messages, setMessages] = useState<TMessage[]>([
     {
       sender: "bot",
-      content: props.prompt,
+      content: props.welcomeText,
       timestamp: new Date().toISOString(),
     },
   ]);
