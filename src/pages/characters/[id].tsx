@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Phone, Send } from "lucide-react";
 import { FormEvent, useState } from "react";
+import { toast } from "@/hooks/use-toast";
 
 interface TMessage {
   sender: string;
@@ -116,14 +117,27 @@ export default function ChatPage(props: TInfluencer) {
               placeholder="Type your message..."
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
-              onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+              onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
               className="flex-grow"
+              disabled={isLoading}
             />
-            <Button size="icon" variant="outline">
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => {
+                toast({
+                  description: "Call support coming soon...",
+                });
+              }}
+            >
               <Phone className="h-4 w-4" />
               <span className="sr-only">Call</span>
             </Button>
-            <Button size="icon" onClick={handleSendMessage}>
+            <Button
+              size="icon"
+              onClick={handleSendMessage}
+              disabled={isLoading}
+            >
               <Send className="h-4 w-4" />
               <span className="sr-only">Send</span>
             </Button>

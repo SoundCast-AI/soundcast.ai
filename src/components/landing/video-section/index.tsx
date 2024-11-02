@@ -33,10 +33,10 @@ const VideoSection = () => (
               height="400"
               src="https://www.youtube.com/embed/tmEgM6bhtZU?si=qiU6_E8rvmWzSh3M"
               title="YouTube video player"
-              frameborder="0"
+              // frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
             ></iframe>
           </div>
         </div>

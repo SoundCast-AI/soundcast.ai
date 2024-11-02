@@ -67,7 +67,7 @@ export default function ExplorePage(props: TExplorePageProps) {
               <Link
                 href={`/characters/${character.id}`}
                 key={character.id}
-                className="transition-transform hover:scale-105"
+                className="transition-transform"
               >
                 <Card>
                   <CardHeader className="flex flex-row items-center gap-4">
