@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "@/components/landing/button";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface IMenuButton {
   toggleMenu: React.MouseEventHandler<HTMLButtonElement>;
@@ -12,33 +13,48 @@ type Link = {
   href: string;
 };
 
-const links = [
+const links: {
+  label: string;
+  href: string;
+  disabled?: boolean;
+}[] = [
   {
-    label: `Features`,
-    href: `/`,
-  },
-  {
-    label: `Testimonials`,
-    href: `/`,
-  },
-  {
-    label: `Pricing`,
-    href: `/`,
+    label: "Explore",
+    href: "/characters",
   },
   {
     label: `Blog`,
-    href: `/`,
+    href: `/blogs`,
+    disabled: true,
+  },
+  {
+    label: `Features`,
+    href: `/#features`,
+  },
+  {
+    label: `Testimonials`,
+    href: `/#testimonials`,
+    disabled: true,
+  },
+  {
+    label: `Pricing`,
+    href: `/#pricing`,
   },
 ];
 
-const secondaryLinks = [
+const secondaryLinks: {
+  label: string;
+  href: string;
+  disabled?: boolean;
+}[] = [
   {
-    label: `Contact sales`,
-    href: `/`,
+    label: `Contact`,
+    href: `/contact`,
   },
   {
     label: `Log in`,
     href: `/`,
+    disabled: true,
   },
   {
     label: `Get Started`,
@@ -98,14 +114,17 @@ const MenuButton = ({ toggleMenu, showMenu }: IMenuButton) => (
 const MobileMenu = () => (
   <div className={cn(`md:hidden`)}>
     <div className={cn(`px-2 pt-2 pb-3 space-y-1 sm:px-3`)}>
-      {links.map((link: Link) => (
-        <a
+      {links.map((link) => (
+        <Link
           href={link.href}
-          className={cn(`text-gray-500 block px-3 py-2 text-base font-medium`)}
+          className={cn(
+            `text-gray-500 block px-3 py-2 text-base font-medium`,
+            link?.disabled && `cursor-not-allowed`
+          )}
           key={link.label}
         >
           {link.label}
-        </a>
+        </Link>
       ))}
     </div>
     <div className={cn(`pt-4 pb-3 border-t border-gray-400`)}>
@@ -147,12 +166,13 @@ const Navigation = () => {
 
             <div className={cn(`hidden md:block`)}>
               <div className={cn(`ml-10 flex items-baseline space-x-4`)}>
-                {links.map((link: Link) => (
+                {links.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
                     className={cn(
-                      `text-gray-500 hover:text-gray-600 px-3 py-2 rounded-md font-medium`
+                      `text-gray-500 hover:text-gray-600 px-3 py-2 rounded-md font-medium`,
+                      link?.disabled && `cursor-not-allowed`
                     )}
                   >
                     {link.label}

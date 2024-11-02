@@ -7,7 +7,6 @@ import FeatureSection from "@/components/landing/feature-section";
 import CasesSection from "@/components/landing/cases-section";
 import SocialProof from "@/components/landing/social-proof";
 import PricingTable from "@/components/landing/pricing-table";
-import Footer from "@/components/landing/footer";
 
 export default function Home() {
   return (
@@ -25,7 +24,6 @@ export default function Home() {
         <SocialProof />
         <PricingTable />
       </main>
-      <Footer />
     </Page>
   );
 }

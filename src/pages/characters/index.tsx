@@ -20,7 +20,6 @@ import { GetStaticPropsResult } from "next";
 import { getAllInflucnecers } from "@/lib/character-apis";
 import { NextSeo } from "next-seo";
 import Page from "@/components/landing/page";
-import Footer from "@/components/landing/footer";
 
 type TExplorePageProps = {
   characters: TInfluencer[];
@@ -34,7 +33,7 @@ export default function ExplorePage(props: TExplorePageProps) {
         description="Explore our AI Personalities"
       />
       <main>
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 mb-24">
           <h1 className="text-3xl font-bold mb-8">Explore AI Bots</h1>
 
           <div className="mb-6 flex flex-col sm:flex-row gap-4">
@@ -100,7 +99,6 @@ export default function ExplorePage(props: TExplorePageProps) {
           </div>
         </div>
       </main>
-      <Footer />
     </Page>
   );
 }
