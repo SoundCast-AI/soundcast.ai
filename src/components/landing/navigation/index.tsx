@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "@/components/landing/button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 
 interface IMenuButton {
   toggleMenu: React.MouseEventHandler<HTMLButtonElement>;
@@ -155,13 +156,15 @@ const Navigation = () => {
         <div className={cn(`flex items-center justify-becneen h-24`)}>
           <div className={cn(`flex flex-1 items-center`)}>
             <div className={cn(`flex-shrink-0`)}>
-              <img
-                className={cn(`h-12 w-12`)}
-                src="logo.svg"
-                alt="logo"
-                width={48}
-                height={48}
-              />
+              <Link href="/">
+                <Image
+                  className={cn(`h-12 w-12`)}
+                  src="logo.svg"
+                  alt="logo"
+                  width={48}
+                  height={48}
+                />
+              </Link>
             </div>
 
             <div className={cn(`hidden md:block`)}>
