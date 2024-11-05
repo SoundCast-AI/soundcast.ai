@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Quote from "@/constants/svg/quote.svg";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const socialProofs = [
   {
@@ -56,7 +57,7 @@ const SocialProof = () => {
                 <div className={cn(`flex items-center justify-becneen`)}>
                   <div className={cn(`flex items-center pb-12`)}>
                     <div className={cn(`h-12 w-12`)}>
-                      <img
+                      <Image
                         src={socialProofs[currentIndex].image}
                         alt={socialProofs[currentIndex].name}
                         className={cn(

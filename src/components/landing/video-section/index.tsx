@@ -1,7 +1,7 @@
-import Preferences from "@/constants/svg/preferences.svg";
 import Play from "@/constants/svg/play.svg";
 import { cn } from "@/lib/utils";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const PlayButton = () => (
   <button
     type="button"

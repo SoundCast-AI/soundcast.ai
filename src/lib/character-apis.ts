@@ -25,6 +25,8 @@ export const getInfluencerByID = async (
 
     return response.data as TInfluencer | null;
   } catch (e: unknown) {
+    console.log("Error fetching influencer by ID", e);
+
     return null;
   }
 };
@@ -47,6 +49,8 @@ export const chatWithInfluencerByID = async ({
 
     return response.data as string;
   } catch (e: unknown) {
+    console.log("Error chatting with influencer by ID", e);
+
     return "Something went wrong, please try again later.";
   }
 };

@@ -1,5 +1,7 @@
 import Button from "@/components/landing/button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 const productLinks = [
   `Features`,
@@ -37,7 +39,7 @@ const Footer = () => (
       )}
     >
       <div className={cn(`mb-14 flex items-center w-full`)}>
-        <img
+        <Image
           className={cn(`h-12 w-12 mr-4`)}
           src="logo.svg"
           alt="logo"
@@ -61,7 +63,7 @@ const Footer = () => (
                     )}
                     key={link}
                   >
-                    <a href="/">{link}</a>
+                    <Link href="/">{link}</Link>
                   </li>
                 ))}
               </ul>
@@ -80,7 +82,7 @@ const Footer = () => (
                     )}
                     key={link}
                   >
-                    <a href="/">{link}</a>
+                    <Link href="/">{link}</Link>
                   </li>
                 ))}
               </ul>
@@ -99,7 +101,7 @@ const Footer = () => (
                     )}
                     key={link}
                   >
-                    <a href="/">{link}</a>
+                    <Link href="/">{link}</Link>
                   </li>
                 ))}
               </ul>

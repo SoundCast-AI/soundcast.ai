@@ -1,6 +1,7 @@
 import Arrow from "@/constants/svg/arrow.svg";
 import { cn } from "@/lib/utils";
 import Particles from "@tsparticles/react";
+import Image from "next/image";
 
 const ParticleBg = () => (
   <Particles
@@ -92,7 +93,7 @@ const CasesSection = () => (
                 )}
               >
                 <div className={cn(`h-64 z-20`)}>
-                  <img
+                  <Image
                     src={article.image}
                     alt={article.alt}
                     className={cn(
