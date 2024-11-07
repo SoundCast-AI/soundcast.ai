@@ -33,7 +33,8 @@ const Header = () => (
       </div>
     </div>
 
-    <div className={cn(`flex justify-center w-full`)}>
+    {/* TODO: Add Partners Here */}
+    {/* <div className={cn(`flex justify-center w-full`)}>
       <div className={cn(`mt-4 w-full`)}>
         <p
           className={cn(
@@ -51,7 +52,7 @@ const Header = () => (
           <Figma className={cn(`m-12`)} width={140} />
         </div>
       </div>
-    </div>
+    </div> */}
   </header>
 );
 

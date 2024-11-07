@@ -1,137 +1,98 @@
 import Check from "@/constants/svg/check.svg";
 import { cn } from "@/lib/utils";
 
-const FeatureSection = () => (
-  <section className={cn(`bg-white pb-6`)}>
-    <div className={cn(`max-w-7xl mx-auto p-4 sm:p-6 lg:p-8`)}>
-      <div className={cn(`container mx-auto px-6 p-6 bg-white`)}>
-        <div className={cn(`mb-16 text-center`)}>
-          <h4
-            className={cn(
-              `text-base text-indigo-600 font-semibold tracking-wide uppercase`
-            )}
-          >
-            Features
-          </h4>
-          <p
-            className={cn(
-              `mt-2 text-5xl lg:text-7xl font-bold tracking-tight text-gray-900`
-            )}
-          >
-            How we change the game
-          </p>
-        </div>
-        <div className={cn(`flex flex-wrap my-12`)}>
-          <div
-            className={cn(`w-full border-b md:w-1/2 md:border-r lg:w-1/3 p-8`)}
-          >
-            <div className={cn(`flex items-center mb-6`)}>
-              <Check
-                width={20}
-                height={20}
-                fill="currentColor"
-                className={cn(`h-6 w-6 text-indigo-500`)}
-              />
-              <div className={cn(`ml-4 text-xl`)}>Increase sales</div>
+const features = [
+  {
+    icon: "🎭",
+    title: "Celebrity AI Replicas",
+    description:
+      "Interact with AI personalities inspired by thought leaders, entrepreneurs, and influencers. Experience their knowledge and insights firsthand.",
+  },
+  {
+    icon: "🎯",
+    title: "Custom Voice Agents",
+    description:
+      "Create personalized AI agents with your own data and voice. Perfect for business representatives, customer service, and unique applications.",
+  },
+  {
+    icon: "📞",
+    title: "Phone Conversations",
+    description:
+      "Take your AI interactions beyond text. Engage in natural phone conversations with voice-enabled AI personalities.",
+  },
+];
+
+const personalities = [
+  {
+    name: "Elon Musk AI",
+    description:
+      "Explore innovation, space, and technology with an AI inspired by the Tesla & SpaceX CEO.",
+  },
+  {
+    name: "Naval Ravikant AI",
+    description:
+      "Discuss wealth creation, philosophy, and personal growth with an AI based on the AngelList founder.",
+  },
+  {
+    name: "Create Custom AI",
+    description:
+      "Build your own AI personality with custom knowledge, voice, and characteristics.",
+  },
+  {
+    name: "Enterprise Solutions",
+    description:
+      "Deploy custom voice agents for your business needs and customer service.",
+  },
+];
+
+export default function FeatureSection() {
+  return (
+    <section id="features" className="py-20 bg-white">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-16">
+          Powerful Voice AI Features
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="p-6 border rounded-xl hover:shadow-lg transition-shadow"
+            >
+              <div className="text-4xl mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
+              <p className="text-gray-600">{feature.description}</p>
             </div>
-            <p className={cn(`leading-loose text-gray-500`)}>
-              Consectetur pariatur irure exercitation sit amet id consectetur
-              consecteturmagna et Lorem labore qui velit.
-            </p>
-          </div>
-          <div
-            className={cn(`w-full border-b md:w-1/2 lg:w-1/3 lg:border-r p-8`)}
-          >
-            <div className={cn(`flex items-center mb-6`)}>
-              <Check
-                width={20}
-                height={20}
-                fill="currentColor"
-                className={cn(`h-6 w-6 text-indigo-500`)}
-              />
-              <div className={cn(`ml-4 text-xl`)}>Enterprise-ready</div>
-            </div>
-            <p className={cn(`leading-loose text-gray-500 `)}>
-              Labore duis pariatur est exercitation laboris cupidatat amet
-              cillum. Amet nisi ullamco.
-            </p>
-          </div>
-          <div
-            className={cn(
-              `w-full border-b md:w-1/2 md:border-r lg:w-1/3 lg:border-r-0 p-8`
-            )}
-          >
-            <div className="flex items-center mb-6">
-              <Check
-                width={20}
-                height={20}
-                fill="currentColor"
-                className={cn(`h-6 w-6 text-indigo-500`)}
-              />
-              <div className={cn(`ml-4 text-xl`)}>Unlimited growth</div>
-            </div>
-            <p className={cn(`leading-loose text-gray-500`)}>
-              Elit deserunt nisi esse duis cupidatat proident sit minim mollit
-              officia pariatur incididunt in tempor.
-            </p>
-          </div>
-          <div
-            className={cn(
-              `w-full border-b md:w-1/2 lg:w-1/3 lg:border-r lg:border-b-0 p-8`
-            )}
-          >
-            <div className={cn(`flex items-center mb-6`)}>
-              <Check
-                width={20}
-                height={20}
-                fill="currentColor"
-                className={cn(`h-6 w-6 text-indigo-500`)}
-              />
-              <div className={cn(`ml-4 text-xl`)}>Recommended by experts</div>
-            </div>
-            <p className={cn(`leading-loose text-gray-500`)}>
-              Velit sit tempor pariatur quis pariatur incididunt culpa dolor
-              voluptate officia incididunt velit dolore.
-            </p>
-          </div>
-          <div
-            className={cn(
-              `w-full border-b md:w-1/2 md:border-r md:border-b-0 lg:w-1/3 lg:border-b-0 p-8`
-            )}
-          >
-            <div className={cn(`flex items-center mb-6`)}>
-              <Check
-                width={20}
-                height={20}
-                fill="currentColor"
-                className={cn(`h-6 w-6 text-indigo-500`)}
-              />
-              <div className={cn(`ml-4 text-xl`)}>Modern platform</div>
-            </div>
-            <p className={cn(`leading-loose text-gray-500`)}>
-              Laboris elit consectetur sint nisi eu mollit proident sit magna
-              velit adipisicing consequat amet reprehenderit.
-            </p>
-          </div>
-          <div className={cn(`w-full md:w-1/2 lg:w-1/3 p-8`)}>
-            <div className={cn(`flex items-center mb-6`)}>
-              <Check
-                width={20}
-                height={20}
-                fill="currentColor"
-                className={cn(`h-6 w-6 text-indigo-500`)}
-              />
-              <div className={cn(`ml-4 text-xl`)}>Integrations</div>
-            </div>
-            <p className={cn(`leading-loose text-gray-500`)}>
-              Nostrud excepteur incididunt proident sit nulla ipsum sunt nostrud
-              est esse adipisicing irure officia consectetur.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+}
 
-export default FeatureSection;
+export function Personalities() {
+  return (
+    <section id="personalities" className="py-20 bg-gray-50">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-16">
+          Featured AI Personalities
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {personalities.map((personality, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow"
+            >
+              <img
+                src="/api/placeholder/280/280"
+                alt={personality.name}
+                className="rounded-lg mb-4 w-full"
+              />
+              <h3 className="font-bold mb-2">{personality.name}</h3>
+              <p className="text-gray-600">{personality.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
