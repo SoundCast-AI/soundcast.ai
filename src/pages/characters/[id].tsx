@@ -180,7 +180,7 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
       paths: characters.map((character) => ({
         params: { id: character.id.toString() },
       })),
-      fallback: "blocking",
+      fallback: false,
     };
   } catch (e) {
     console.log("Error fetching characters", e);
