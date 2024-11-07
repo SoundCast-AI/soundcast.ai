@@ -83,7 +83,7 @@ export default function ExplorePage(props: TExplorePageProps) {
                     <div>
                       <CardTitle>{character.name}</CardTitle>
                       <p className="text-sm text-muted-foreground">
-                        #Category/Tags Here
+                        {character.tags.join(", ")}
                       </p>
                     </div>
                   </CardHeader>
