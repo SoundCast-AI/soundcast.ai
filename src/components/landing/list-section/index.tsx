@@ -3,8 +3,8 @@ import { cn } from "@/lib/utils";
 
 const listItems = [
   {
-    title: `Designers`,
-    description: `Craft seamless experiences where creativity meets cutting-edge technology. Leverage voice AI to make interactions more engaging and personalized for your users.`,
+    title: `Influencers`,
+    description: `Increase fan engagement by creating an AI replica of yourself. Leverage voice AI to engage with your audience on platforms like YouTube and Discord, while monetizing your content and interactions to earn revenue.`,
   },
   {
     title: `Developers`,

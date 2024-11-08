@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { GetStaticPropsResult } from "next";
-import { getAllInflucnecers } from "@/lib/character-apis";
+import { getAllInfluencers } from "@/lib/character-apis";
 import { NextSeo } from "next-seo";
 import Page from "@/components/landing/page";
 
@@ -106,7 +106,7 @@ export default function ExplorePage(props: TExplorePageProps) {
 export async function getStaticProps(): Promise<
   GetStaticPropsResult<TExplorePageProps>
 > {
-  const characters = await getAllInflucnecers();
+  const characters = await getAllInfluencers();
 
   if (!characters) {
     return {

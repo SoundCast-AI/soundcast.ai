@@ -1,5 +1,5 @@
 import Check from "@/constants/svg/check.svg";
-import Button from "@/components/landing/button";
+// import Button from "@/components/landing/button";
 import { cn } from "@/lib/utils";
 
 const features = [
@@ -15,9 +15,11 @@ const features = [
 
 const PricingTable = () => (
   <section
-    className={cn(`bg-gradient-to-b from-gray-100 to-white shadow-inner pt-12`)}
+    className={cn(
+      `bg-gradient-to-b from-gray-100 to-white shadow-inner pt-12 `
+    )}
   >
-    <div className={cn(`relative max-w-7xl mx-auto mb-24`)}>
+    <div className={cn(`relative max-w-7xl mx-auto mb-24 p-0 md:p-[2rem]`)}>
       <div className={cn(`overflow-hidden lg:max-w-none lg:flex`)}>
         <div className={cn(`py-8 px-6 md:px-0 lg:flex-shrink-1`)}>
           <h2
@@ -57,8 +59,21 @@ const PricingTable = () => (
               ))}
             </ul>
           </div>
+          <div className="mt-12 flex justify-start gap-3 items-center">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800">Contact:-</h3>
+            </div>
+            <div className="text-lg text-blue-600">
+              <a
+                href="mailto:vivekans2016@gmail.com"
+                className="hover:underline"
+              >
+                vivekans2016@gmail.com
+              </a>
+            </div>
+          </div>
         </div>
-        <div
+        {/* <div
           className={cn(
             `py-8 px-6 text-center lg:flex-shrink-0
             lg:flex lg:flex-col lg:justify-center lg:p-12`
@@ -77,7 +92,7 @@ const PricingTable = () => (
           <Button primary modifier="mt-6">
             Contact sales
           </Button>
-        </div>
+        </div> */}
       </div>
     </div>
   </section>

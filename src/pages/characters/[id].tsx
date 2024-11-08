@@ -1,6 +1,6 @@
 import {
   chatWithInfluencerByID,
-  getAllInflucnecers,
+  getAllInfluencers,
   getInfluencerByID,
 } from "@/lib/character-apis";
 import {
@@ -174,10 +174,10 @@ export async function getStaticProps(
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   try {
-    const characters = await getAllInflucnecers();
+    const characters = await getAllInfluencers();
 
     return {
-      paths: characters.map((character) => ({
+      paths: characters.map((character: TInfluencer) => ({
         params: { id: character.id.toString() },
       })),
       fallback: false,

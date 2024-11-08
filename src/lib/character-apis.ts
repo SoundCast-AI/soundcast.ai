@@ -5,7 +5,7 @@ export const axiosBase = axios.create({
   baseURL: CHAT_BACKEND_URL,
 });
 
-export const getAllInflucnecers = async (): Promise<TInfluencer[]> => {
+export const getAllInfluencers = async (): Promise<TInfluencer[]> => {
   try {
     const response = await axiosBase.get(`/influencer/get`);
 
