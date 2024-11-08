@@ -1,5 +1,6 @@
-import Check from "@/constants/svg/check.svg";
-import { cn } from "@/lib/utils";
+// import Check from "@/constants/svg/check.svg";
+// import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const features = [
   {
@@ -27,21 +28,28 @@ const personalities = [
     name: "Elon Musk AI",
     description:
       "Explore innovation, space, and technology with an AI inspired by the Tesla & SpaceX CEO.",
+    image:
+      "https://www.investopedia.com/thmb/XJDLdvCuNbcWk_EVZzXx84ae82c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1258889149-1f50bb87f9d54dca87813923f12ac94b.jpg",
   },
   {
     name: "Naval Ravikant AI",
     description:
       "Discuss wealth creation, philosophy, and personal growth with an AI based on the AngelList founder.",
+    image:
+      "https://i0.wp.com/tim.blog/wp-content/uploads/2020/10/Naval-Ravikant-scaled.jpg?fit=2560%2C2048&ssl=1",
   },
   {
-    name: "Create Custom AI",
+    name: "Sadhguru AI",
     description:
-      "Build your own AI personality with custom knowledge, voice, and characteristics.",
+      "Experience spiritual wisdom and transformative insights with an AI inspired by Sadhguru's teachings.",
+    image:
+      "https://mrwallpaper.com/images/thumbnail/sadhguru-intertwining-his-fingers-t0glt8st69bmwls9.webp",
   },
   {
-    name: "Enterprise Solutions",
+    name: "Ratan Tata AI",
     description:
-      "Deploy custom voice agents for your business needs and customer service.",
+      "Gain business acumen and leadership wisdom with an AI inspired by Ratan Tata's legacy.",
+    image: "https://im.rediff.com/money/2012/dec/20tata1.jpg",
   },
 ];
 
@@ -80,12 +88,14 @@ export function Personalities() {
           {personalities.map((personality, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow"
+              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow "
             >
-              <img
-                src="/api/placeholder/280/280"
+              <Image
+                width={280}
+                height={280}
+                src={personality.image || "/placeholder.jpg"}
                 alt={personality.name}
-                className="rounded-lg mb-4 w-full"
+                className="rounded-lg mb-4 w-full h-[20rem] object-cover"
               />
               <h3 className="font-bold mb-2">{personality.name}</h3>
               <p className="text-gray-600">{personality.description}</p>

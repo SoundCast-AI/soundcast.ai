@@ -1,8 +1,8 @@
 import Button from "@/components/landing/button";
-import Netlify from "@/constants/svg/netlify.svg";
-import Nike from "@/constants/svg/nike.svg";
-import Figma from "@/constants/svg/figma.svg";
-import Aws from "@/constants/svg/aws.svg";
+// import Netlify from "@/constants/svg/netlify.svg";
+// import Nike from "@/constants/svg/nike.svg";
+// import Figma from "@/constants/svg/figma.svg";
+// import Aws from "@/constants/svg/aws.svg";
 import { cn } from "@/lib/utils";
 
 const Header = () => (
@@ -31,6 +31,10 @@ const Header = () => (
         <span className={cn(`mx-2`)}>or</span>
         <Button>Contact us</Button>
       </div>
+      <p className="flex justify-center text-center mt-10  text-gray-500  text-xl lg:text-2xl">
+        Empowering Conversations with AI-Driven Voice Agents From Influencers to
+        Customer Support – Discover Voice Agents Built for Connection
+      </p>
     </div>
 
     {/* TODO: Add Partners Here */}

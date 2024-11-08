@@ -2,6 +2,7 @@ import Arrow from "@/constants/svg/arrow.svg";
 import { cn } from "@/lib/utils";
 import Particles from "@tsparticles/react";
 import Image from "next/image";
+// import { title } from "process";
 
 const ParticleBg = () => (
   <Particles
@@ -46,17 +47,18 @@ const ParticleBg = () => (
 
 const articles = [
   {
-    title: `Velit reprehenderit culpa Lorem reprehenderit excepteur ipsum esse.`,
+    title: `Success Stories from Industry Leaders`,
+    description: `Don't just take our word for it — hear what top innovators and digital leaders have to say:.`,
     image: `/images/case-1.webp`,
     alt: `Proident pariatur est.`,
   },
   {
-    title: `Velit reprehenderit culpa Lorem reprehenderit ipsum esse.`,
+    description: `Velit reprehenderit culpa Lorem reprehenderit ipsum esse.`,
     image: `/images/case-2.webp`,
     alt: `Proident pariatur est.`,
   },
   {
-    title: `Velit reprehenderit culpa Lorem reprehenderit excepteur esse.`,
+    description: `Velit reprehenderit culpa Lorem reprehenderit excepteur esse.`,
     image: `/images/case-3.webp`,
     alt: `Proident pariatur est.`,
   },
@@ -78,9 +80,10 @@ const CasesSection = () => (
         >
           What will you build?
         </h1>
-        <p className={cn(`text-white text-gray-400 text-center text-xl mt-12`)}>
-          Don’t just take our word for it — see what leaders in digital are
-          saying
+        <p className={cn(`text-white  text-center text-xl mt-12`)}>
+          Unleash the potential of AI-driven voice technology to revolutionize
+          customer interactions, streamline processes, and enhance user
+          engagement. Your imagination is the only limit.
         </p>
         <div className={cn(`mx-auto pt-24`)}>
           <div className={cn(`w-full flex flex-wrap justify-around`)}>
@@ -113,10 +116,10 @@ const CasesSection = () => (
                       `uppercase text-sm text-gray-700 text-center pb-1`
                     )}
                   >
-                    Case study
+                    {article.title}
                   </p>
                   <p className={cn(`text-gray-500 text-center pb-1 text-sm`)}>
-                    {article.title}
+                    {article.description}
                   </p>
                 </div>
               </div>

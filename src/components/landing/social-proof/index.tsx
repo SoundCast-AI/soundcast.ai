@@ -5,22 +5,16 @@ import Image from "next/image";
 
 const socialProofs = [
   {
-    name: `John Doe`,
-    company: `Alphabet Inc.`,
+    name: `Alice Smith`,
+    company: `GreenTech Solutions`,
     image: `/images/social-1.webp`,
-    text: `Commodo Lorem consequat ea consectetur pariatur proident excepteur.
-    Pariatur eiusmod minim minim ipsum tempor aute excepteur minim eu nisi laboris.
-    Duis sunt labore eu eu cupidatat labore commodo id aliquip.`,
+    text: `I had an amazing experience working with this team. Their professionalism and dedication to delivering high-quality results were evident throughout the entire project. They went above and beyond to ensure that all our requirements were met, and the final product exceeded our expectations. Highly recommend their services for anyone looking for reliable and innovative solutions!`,
   },
   {
-    name: `Jack Doe`,
-    company: `Amazon.com, Inc.`,
+    name: `Robert Johnson`,
+    company: `Pixel Innovations`,
     image: `/images/social-2.webp`,
-    text: `Anim labore ut amet cupidatat pariatur pariatur labore ad est.
-    Fugiat eiusmod dolore aliquip aute duis esse excepteur amet.
-    Sit cupidatat ipsum culpa nisi esse ipsum culpa in consectetur.
-    Enim incididunt do sunt ex do. Proident duis nulla minim sunt irure est
-    magna nostrud Lorem consectetur irure.`,
+    text: `The team truly exceeded our expectations with their attention to detail and commitment to delivering on time. From start to finish, they were communicative, transparent, and willing to tackle every challenge that came their way. Working with them was an absolute pleasure, and we look forward to future collaborations.`,
   },
 ];
 

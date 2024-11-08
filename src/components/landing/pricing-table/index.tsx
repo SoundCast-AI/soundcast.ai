@@ -3,14 +3,14 @@ import Button from "@/components/landing/button";
 import { cn } from "@/lib/utils";
 
 const features = [
-  `Laboris nulla`,
-  `Lorem pariatur nisi`,
-  `Id aute amet pariatur`,
-  `Do duis sint aliquip`,
-  `Nostrud duis tempor`,
-  `Consequat eiusmod`,
-  `Reprehenderit`,
-  `Adipisicing reprehenderit`,
+  `Comprehensive Support`,
+  `Tailored Solutions`,
+  `Seamless Integration`,
+  `Advanced Technology`,
+  `Real-time Analytics`,
+  `Scalability`,
+  `Innovation`,
+  `Dedicated Team`,
 ];
 
 const PricingTable = () => (
@@ -26,10 +26,10 @@ const PricingTable = () => (
             Are you ready?
           </h2>
           <p className={cn(`mt-6 text-base leading-6 text-gray-500`)}>
-            Lorem id ullamco pariatur eiusmod labore qui deserunt incididunt
-            deserunt nostrud. Tempor duis in adipisicing exercitation ipsum
-            nostrud esse. Reprehenderit cupidatat sint est deserunt id eiusmod
-            amet aliqua officia.
+            Step into the future of seamless experiences with our cutting-edge
+            service. From innovative solutions to enhanced efficiency, we’ve got
+            everything you need to succeed. Don’t wait — transform your business
+            today!
           </p>
           <div className={cn(`mt-8`)}>
             <div className={cn(`flex items-center`)}>
@@ -43,7 +43,7 @@ const PricingTable = () => (
               </h3>
               <div className={cn(`flex-1 border-t-2 border-gray-200`)} />
             </div>
-            <ul className={cn(`mt-8 lg:grid lg:grid-cols-2`)}>
+            <ul className={cn(`mt-8 lg:grid lg:grid-cols-2 text-justify`)}>
               {features.map((feature) => (
                 <li
                   className={cn(`flex items-center lg:col-span-1`)}

@@ -27,13 +27,13 @@ const VideoSection = () => (
     <div className={cn(`max-w-7xl mx-auto`)}>
       <div className={cn(`flex flex-col max-w-4xl mx-auto pt-28`)}>
         <div className={cn(`w-full`)}>
-          <div className={cn(`relative shadow-2xl mx-6 lg:mx-0`)}>
+          <div className={cn(`relative shadow-2xl mx-6 lg:mx-0 `)}>
             <iframe
               width="100%"
               height="400"
-              src="https://www.youtube.com/embed/tmEgM6bhtZU?si=qiU6_E8rvmWzSh3M"
+              className="rounded-lg"
+              src="https://www.youtube.com/embed/tmEgM6bhtZU?controls=0&modestbranding=1&rel=0&fs=0&autoplay=1"
               title="YouTube video player"
-              // frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen

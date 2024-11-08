@@ -4,21 +4,19 @@ import { cn } from "@/lib/utils";
 const listItems = [
   {
     title: `Designers`,
-    description: `Officia et fugiat mollit qui. Dolor elit aliqua voluptate ipsum
-    excepteur cillum consequat consectetur duis magna qui eu consequat occaecat.
-    Deserunt nisi sit.`,
+    description: `Craft seamless experiences where creativity meets cutting-edge technology. Leverage voice AI to make interactions more engaging and personalized for your users.`,
   },
   {
     title: `Developers`,
-    description: `Pariatur consectetur laboris exercitation duis laboris.
-    Commodo duis fugiat magna fugiat et ut anim elit. Tempor aute ex qui
-    tempor tempor.`,
+    description: `Integrate intelligent voice technology effortlessly into your projects. With robust APIs and easy-to-use SDKs, SoundCast.ai is built for developers who want rapid, reliable solutions.
+
+`,
   },
   {
     title: `Product owners`,
-    description: `Ullamco consectetur ipsum eiusmod nisi adipisicing sint anim
-    dolore aute excepteur. Voluptate ea ullamco sunt eu elit qui aliquip.
-    Adipisicing.`,
+    description: `Empower your products with AI-driven voice capabilities that align with your brand's tone and objectives. Enhance customer interactions and gather valuable insights.
+
+`,
   },
 ];
 

@@ -6,7 +6,7 @@ import ListSection from "@/components/landing/list-section";
 import FeatureSection, {
   Personalities,
 } from "@/components/landing/feature-section";
-import CasesSection from "@/components/landing/cases-section";
+// import CasesSection from "@/components/landing/cases-section";
 import SocialProof from "@/components/landing/social-proof";
 import PricingTable from "@/components/landing/pricing-table";
 
@@ -23,7 +23,7 @@ export default function Home() {
         <ListSection />
         <FeatureSection />
         <Personalities />
-        <CasesSection />
+        {/* <CasesSection /> */}
         <SocialProof />
         <PricingTable />
       </main>
