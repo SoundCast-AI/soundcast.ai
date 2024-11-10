@@ -6,4 +6,5 @@ type TInfluencer = {
   tags: string[];
   description: string;
   prompt: string;
+  featured: boolean;
 };
