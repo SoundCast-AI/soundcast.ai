@@ -7,10 +7,10 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head></Head>
-        <GoogleAnalytics gaId="G-68G8T7K84E" />
         <body>
           <Main />
           <NextScript />
+          <GoogleAnalytics gaId="G-68G8T7K84E" />
         </body>
       </Html>
     );
