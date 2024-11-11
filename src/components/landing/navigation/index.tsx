@@ -187,7 +187,7 @@ const Navigation = () => {
 
           <div className={cn(`hidden md:block`)}>
             <div className={cn(`ml-4 flex items-center md:ml-6 gap-4`)}>
-              <Link href={"https://calendly.com/ck76"}>
+              <Link href={"https://calendly.com/ck76"} target="_blank">
                 <Button>Schedule a meet</Button>
               </Link>
 
