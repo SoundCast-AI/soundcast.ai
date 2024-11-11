@@ -49,17 +49,17 @@ const secondaryLinks: {
   disabled?: boolean;
 }[] = [
   {
-    label: `Contact`,
-    href: `/contact`,
+    label: `Schedule a meet`,
+    href: `https://calendly.com/ck76`,
   },
-  {
-    label: `Log in`,
-    href: `/`,
-    disabled: true,
-  },
+  // {
+  //   label: `Log in`,
+  //   href: `/`,
+  //   disabled: true,
+  // },
   {
     label: `Get Started`,
-    href: `/`,
+    href: `/characters`,
   },
 ];
 
@@ -186,10 +186,15 @@ const Navigation = () => {
           </div>
 
           <div className={cn(`hidden md:block`)}>
-            <div className={cn(`ml-4 flex items-center md:ml-6`)}>
-              <Button modifier="border-0 mr-2">Contact sales</Button>
-              <Button modifier="border-0 mr-2">Log in</Button>
-              <Button primary>Get started</Button>
+            <div className={cn(`ml-4 flex items-center md:ml-6 gap-4`)}>
+              <Link href={"https://calendly.com/ck76"}>
+                <Button>Schedule a meet</Button>
+              </Link>
+
+              {/* <Button modifier="border-0 mr-2">Log in</Button> */}
+              <Link href={"/characters"}>
+                <Button primary>Get started</Button>
+              </Link>
             </div>
           </div>
 

@@ -15,6 +15,7 @@ const features = [
 
 const PricingTable = () => (
   <section
+    id="pricing"
     className={cn(
       `bg-gradient-to-b from-gray-100 to-white shadow-inner pt-12 `
     )}

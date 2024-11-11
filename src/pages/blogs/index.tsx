@@ -1,4 +1,4 @@
-import Link from "next/link";
+// import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,22 +13,28 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { CalendarIcon, Clock3Icon } from "lucide-react";
+
+import Image from "next/image";
+// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { GetStaticPropsResult } from "next";
 import { NextSeo } from "next-seo";
 import Page from "@/components/landing/page";
+import { getAllBlogs } from "@/lib/blogs-apis";
 
 // TODO: Replace with Blogs
 type TBlogsPage = {
-  characters: TInfluencer[];
+  blogs: Blogs[];
 };
 
 export default function BlogsPage(props: TBlogsPage) {
   return (
     <Page>
-      <NextSeo title="SoundCast.ai" description="Blogs for SoundCast.ai" />
+      <NextSeo
+        title="SoundCast.ai"
+        description={props.blogs[0]?.seoMetadata || ""}
+      />
       <main>
         <div className="container mx-auto px-4 py-8 mb-24">
           <h1 className="text-3xl font-bold mb-8">Blogs</h1>
@@ -59,39 +65,50 @@ export default function BlogsPage(props: TBlogsPage) {
             </Select>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {props.characters.map((character) => (
-              <Link
-                href={`/characters/${character.id}`}
-                key={character.id}
-                className="transition-transform"
-              >
-                <Card>
-                  <CardHeader className="flex flex-row items-center gap-4">
-                    <Avatar className="w-12 h-12">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {props.blogs.map((blogs) => (
+              <Card key={blogs.id} className="overflow-hidden">
+                <Image
+                  width={20}
+                  height={20}
+                  src={blogs.image}
+                  alt={"image"}
+                  className="w-full h-48 object-cover"
+                />
+                <CardHeader>
+                  <h3 className="text-lg font-semibold line-clamp-2">
+                    {blogs.title}
+                  </h3>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground line-clamp-3">
+                    {blogs.content}
+                  </p>
+                </CardContent>
+                <CardFooter className="flex justify-between items-center">
+                  <div className="flex items-center space-x-2">
+                    {/* <Avatar className="w-8 h-8">
                       <AvatarImage
-                        src={character.imageUrl}
-                        alt={character.name}
+                        src={post.author.avatar}
+                        alt={post.author}
                       />
-                      <AvatarFallback>
-                        {character.name.slice(0, 2)}
-                      </AvatarFallback>
-                    </Avatar>
+                      <AvatarFallback>{blogs.author}</AvatarFallback>
+                    </Avatar> */}
                     <div>
-                      <CardTitle>{character.name}</CardTitle>
-                      <p className="text-sm text-muted-foreground">
-                        #Category/Tags Here
-                      </p>
+                      <p className="text-sm font-medium">{blogs.author}</p>
+                      <div className="flex items-center text-xs text-muted-foreground">
+                        <CalendarIcon className="mr-1 h-3 w-3" />
+                        {blogs.date}
+                        <Clock3Icon className="ml-2 mr-1 h-3 w-3" />
+                        {blogs.tags}
+                      </div>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm">{character.description}</p>
-                  </CardContent>
-                  <CardFooter>
-                    <Button className="w-full">Chat Now</Button>
-                  </CardFooter>
-                </Card>
-              </Link>
+                  </div>
+                  <Button variant="outline" size="sm">
+                    Read More
+                  </Button>
+                </CardFooter>
+              </Card>
             ))}
           </div>
         </div>
@@ -103,17 +120,17 @@ export default function BlogsPage(props: TBlogsPage) {
 export async function getStaticProps(): Promise<
   GetStaticPropsResult<TBlogsPage>
 > {
-  const characters: TInfluencer[] = [];
+  const blogs: Blogs[] = await getAllBlogs();
 
-  if (!characters) {
+  if (!blogs) {
     return {
       props: {
-        characters: [],
+        blogs: [],
       },
     };
   }
 
   return {
-    props: { characters },
+    props: { blogs },
   };
 }

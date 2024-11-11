@@ -53,7 +53,7 @@ export default function ChatPage(props: TInfluencer) {
       setInputMessage("");
 
       const botResponse = await chatWithInfluencerByID({
-        id: "1",
+        id: `${props.id} `,
         message: inputMessage,
       });
 
@@ -81,7 +81,7 @@ export default function ChatPage(props: TInfluencer) {
             <AvatarImage src={props.imageUrl} alt="Bot Avatar" />
             <AvatarFallback>BOT</AvatarFallback>
           </Avatar>
-          <h2 className="text-2xl font-bold">ChatBot</h2>
+          <h2 className="text-2xl font-bold">AI Replica</h2>
           <p className="text-center text-muted-foreground">{props.name}</p>
         </div>
       </div>

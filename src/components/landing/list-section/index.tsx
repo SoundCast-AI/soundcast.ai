@@ -21,7 +21,7 @@ const listItems = [
 ];
 
 const ListSection = () => (
-  <section className={cn(`lg:py-28 pt-28 overflow-hidden`)}>
+  <section id="customers" className={cn(`lg:py-28 pt-28 overflow-hidden`)}>
     <div className={cn(`max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 bg-white`)}>
       <div className={cn(`mb-16 text-center`)}>
         <h2

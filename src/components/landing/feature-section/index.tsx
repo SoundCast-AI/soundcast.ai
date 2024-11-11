@@ -1,6 +1,16 @@
 // import Check from "@/constants/svg/check.svg";
 // import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { getAllInfluencers } from "@/lib/character-apis";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 
 const features = [
   {
@@ -23,35 +33,35 @@ const features = [
   },
 ];
 
-const personalities = [
-  {
-    name: "Elon Musk AI",
-    description:
-      "Explore innovation, space, and technology with an AI inspired by the Tesla & SpaceX CEO.",
-    image:
-      "https://www.investopedia.com/thmb/XJDLdvCuNbcWk_EVZzXx84ae82c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1258889149-1f50bb87f9d54dca87813923f12ac94b.jpg",
-  },
-  {
-    name: "Naval Ravikant AI",
-    description:
-      "Discuss wealth creation, philosophy, and personal growth with an AI based on the AngelList founder.",
-    image:
-      "https://i0.wp.com/tim.blog/wp-content/uploads/2020/10/Naval-Ravikant-scaled.jpg?fit=2560%2C2048&ssl=1",
-  },
-  {
-    name: "Sadhguru AI",
-    description:
-      "Experience spiritual wisdom and transformative insights with an AI inspired by Sadhguru's teachings.",
-    image:
-      "https://mrwallpaper.com/images/thumbnail/sadhguru-intertwining-his-fingers-t0glt8st69bmwls9.webp",
-  },
-  {
-    name: "Ratan Tata AI",
-    description:
-      "Gain business acumen and leadership wisdom with an AI inspired by Ratan Tata's legacy.",
-    image: "https://im.rediff.com/money/2012/dec/20tata1.jpg",
-  },
-];
+// const personalities = [
+//   {
+//     name: "Elon Musk AI",
+//     description:
+//       "Explore innovation, space, and technology with an AI inspired by the Tesla & SpaceX CEO.",
+//     image:
+//       "https://www.investopedia.com/thmb/XJDLdvCuNbcWk_EVZzXx84ae82c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1258889149-1f50bb87f9d54dca87813923f12ac94b.jpg",
+//   },
+//   {
+//     name: "Naval Ravikant AI",
+//     description:
+//       "Discuss wealth creation, philosophy, and personal growth with an AI based on the AngelList founder.",
+//     image:
+//       "https://i0.wp.com/tim.blog/wp-content/uploads/2020/10/Naval-Ravikant-scaled.jpg?fit=2560%2C2048&ssl=1",
+//   },
+//   {
+//     name: "Sadhguru AI",
+//     description:
+//       "Experience spiritual wisdom and transformative insights with an AI inspired by Sadhguru's teachings.",
+//     image:
+//       "https://mrwallpaper.com/images/thumbnail/sadhguru-intertwining-his-fingers-t0glt8st69bmwls9.webp",
+//   },
+//   {
+//     name: "Ratan Tata AI",
+//     description:
+//       "Gain business acumen and leadership wisdom with an AI inspired by Ratan Tata's legacy.",
+//     image: "https://im.rediff.com/money/2012/dec/20tata1.jpg",
+//   },
+// ];
 
 export default function FeatureSection() {
   return (
@@ -78,30 +88,61 @@ export default function FeatureSection() {
 }
 
 export function Personalities() {
+  const [featured, setFeatured] = useState<TInfluencer[]>([]);
+  useEffect(() => {
+    async function getAllInflencers() {
+      const influencers = await getAllInfluencers();
+      const featuredInfluencers = influencers.filter(
+        (influencers) => influencers.featured === true
+      );
+      console.log(featuredInfluencers);
+      setFeatured(featuredInfluencers);
+    }
+    getAllInflencers();
+  }, []);
   return (
     <section id="personalities" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-16">
           Featured AI Personalities
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {personalities.map((personality, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow "
-            >
-              <Image
-                width={280}
-                height={280}
-                src={personality.image || "/placeholder.jpg"}
-                alt={personality.name}
-                className="rounded-lg mb-4 w-full h-[20rem] object-cover"
-              />
-              <h3 className="font-bold mb-2">{personality.name}</h3>
-              <p className="text-gray-600">{personality.description}</p>
-            </div>
+        <Swiper
+          effect={"coverflow"}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={"auto"}
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }}
+          pagination={{ clickable: true }} // Make pagination clickable
+          modules={[EffectCoverflow, Pagination]} // Ensure correct modules are included
+          className="mySwiper w-full lg-w[50%] md:w-[50%]"
+        >
+          {featured.map((featuredItem) => (
+            <SwiperSlide key={featuredItem.id}>
+              <Link
+                href={`/characters/${featuredItem.id}`}
+                className="transition-transform"
+              >
+                <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+                  <Image
+                    width={280}
+                    height={280}
+                    src={featuredItem.imageUrl || "/placeholder.jpg"}
+                    alt={featuredItem.name}
+                    className="rounded-lg mb-4 w-full h-[20rem] object-contain"
+                  />
+                  <h3 className="font-bold mb-2">{featuredItem.name}</h3>
+                  <p className="text-gray-600">{featuredItem.description}</p>
+                </div>
+              </Link>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );

@@ -34,7 +34,7 @@ export default function ExplorePage(props: TExplorePageProps) {
       />
       <main>
         <div className="container mx-auto px-4 py-8 mb-24">
-          <h1 className="text-3xl font-bold mb-8">Explore AI Bots</h1>
+          <h1 className="text-3xl font-bold mb-8">Explore AI Replicas</h1>
 
           <div className="mb-6 flex flex-col sm:flex-row gap-4">
             <Input className="flex-grow" placeholder="Search AI bots..." />
@@ -69,8 +69,8 @@ export default function ExplorePage(props: TExplorePageProps) {
                 key={character.id}
                 className="transition-transform"
               >
-                <Card>
-                  <CardHeader className="flex flex-row items-center gap-4">
+                <Card className="">
+                  <CardHeader className="flex flex-row items-center gap-4 ">
                     <Avatar className="w-12 h-12">
                       <AvatarImage
                         src={character.imageUrl}

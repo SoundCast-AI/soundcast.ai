@@ -1,5 +1,6 @@
 import Play from "@/constants/svg/play.svg";
 import { cn } from "@/lib/utils";
+// import React, { useEffect } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const PlayButton = () => (
@@ -20,29 +21,32 @@ const PlayButton = () => (
   </button>
 );
 
-const VideoSection = () => (
-  <section
-    className={cn(`bg-gradient-to-b from-gray-50 to-white shadow-inner`)}
-  >
-    <div className={cn(`max-w-7xl mx-auto`)}>
-      <div className={cn(`flex flex-col max-w-4xl mx-auto pt-28`)}>
-        <div className={cn(`w-full`)}>
-          <div className={cn(`relative shadow-2xl mx-6 lg:mx-0 `)}>
-            <iframe
-              width="100%"
-              height="400"
-              className="rounded-lg"
-              src="https://www.youtube.com/embed/tmEgM6bhtZU?controls=0&modestbranding=1&rel=0&fs=0&autoplay=1"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
+const VideoSection = () => {
+  return (
+    <section
+      className={cn(`bg-gradient-to-b from-gray-50 to-white shadow-inner`)}
+    >
+      <div className={cn(`max-w-7xl mx-auto`)}>
+        <div className={cn(`flex flex-col max-w-4xl mx-auto pt-28`)}>
+          <div className={cn(`w-full`)}>
+            <div className={cn(`relative shadow-2xl mx-6 lg:mx-0 `)}>
+              <iframe
+                id="videoFrame"
+                width="100%"
+                height="400"
+                className="rounded-lg"
+                src="https://www.youtube.com/embed/tmEgM6bhtZU?controls=0&modestbranding=1&rel=0&fs=0"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default VideoSection;

@@ -10,7 +10,7 @@ const Header = () => {
 
   useEffect(() => {
     const fetchInfluencer = async () => {
-      const influencer = await getInfluencerByID("1");
+      const influencer = await getInfluencerByID("2");
       console.log(influencer);
       setCharacter(influencer);
     };
@@ -48,9 +48,15 @@ const Header = () => {
             `mt-10 flex justify-center items-center w-full mx-auto`
           )}
         >
-          <Button primary>Get started</Button>
+          <Link href={"/characters"}>
+            <Button primary>Get started</Button>
+          </Link>
+
           <span className={cn(`mx-2`)}>or</span>
-          <Button>Contact us</Button>
+          <Link href={"/contact-us"}>
+            {" "}
+            <Button>Contact us</Button>
+          </Link>
         </div>
         <p className="hidden sm:flex md:flex lg:flex text-center mt-10 text-gray-500 text-xl lg:text-2xl">
           Empowering Conversations with AI-Driven Voice Agents From Influencers
