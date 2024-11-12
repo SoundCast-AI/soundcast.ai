@@ -26,7 +26,6 @@ const links: {
   {
     label: `Blog`,
     href: `/blogs`,
-    disabled: true,
   },
   {
     label: `Features`,
@@ -35,7 +34,6 @@ const links: {
   {
     label: `Testimonials`,
     href: `/#testimonials`,
-    disabled: true,
   },
   {
     label: `Pricing`,
@@ -159,7 +157,7 @@ const Navigation = () => {
               <Link href="/">
                 <Image
                   className={cn(`h-12 w-12`)}
-                  src="logo.svg"
+                  src="/logo.svg"
                   alt="logo"
                   width={48}
                   height={48}

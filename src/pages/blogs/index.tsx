@@ -1,4 +1,3 @@
-// import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,33 +13,69 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { CalendarIcon, Clock3Icon } from "lucide-react";
+import { CalendarIcon } from "lucide-react";
 
 import Image from "next/image";
-// import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { GetStaticPropsResult } from "next";
 import { NextSeo } from "next-seo";
 import Page from "@/components/landing/page";
+import { useEffect, useState } from "react";
+import { format } from "date-fns";
+import Link from "next/link";
 import { getAllBlogs } from "@/lib/blogs-apis";
 
-// TODO: Replace with Blogs
 type TBlogsPage = {
   blogs: Blogs[];
 };
 
 export default function BlogsPage(props: TBlogsPage) {
+  const [blogContent, setBlogContent] = useState<string>("");
+  const [formattedDates, setFormattedDates] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredBlogs, setFilteredBlogs] = useState(props.blogs);
+
+  console.log("blog conent", blogContent);
+
+  // Handle input change
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
+
+  useEffect(() => {
+    const filtered = props.blogs.filter(
+      (blog) =>
+        blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        blog.content.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const allContent = filtered.map((blog) => blog.content).join(" ");
+    setBlogContent(allContent);
+
+    const dates = filtered.map((blog) => {
+      const convertDate = new Date(blog.createdAt);
+      return isNaN(convertDate.getTime())
+        ? "Invalid date"
+        : format(convertDate, "dd MMM yyyy");
+    });
+
+    setFormattedDates(dates);
+    setFilteredBlogs(filtered);
+  }, [searchQuery, props.blogs]);
+
   return (
     <Page>
-      <NextSeo
-        title="SoundCast.ai"
-        description={props.blogs[0]?.seoMetadata || ""}
-      />
+      <NextSeo title="SoundCast.ai" description="Explore our blogs" />
       <main>
         <div className="container mx-auto px-4 py-8 mb-24">
           <h1 className="text-3xl font-bold mb-8">Blogs</h1>
 
           <div className="mb-6 flex flex-col sm:flex-row gap-4">
-            <Input className="flex-grow" placeholder="Search blogs..." />
+            <Input
+              className="flex-grow"
+              placeholder="Search blogs..."
+              onChange={handleSearchChange}
+              value={searchQuery}
+            />
             <Select>
               <SelectTrigger className="w-full sm:w-[180px]">
                 <SelectValue placeholder="Category" />
@@ -81,32 +116,36 @@ export default function BlogsPage(props: TBlogsPage) {
                   </h3>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground line-clamp-3">
-                    {blogs.content}
-                  </p>
+                  <div
+                    className="text-sm text-muted-foreground line-clamp-3"
+                    dangerouslySetInnerHTML={{
+                      __html: blogContent,
+                    }}
+                  ></div>
                 </CardContent>
                 <CardFooter className="flex justify-between items-center">
                   <div className="flex items-center space-x-2">
-                    {/* <Avatar className="w-8 h-8">
-                      <AvatarImage
-                        src={post.author.avatar}
-                        alt={post.author}
-                      />
-                      <AvatarFallback>{blogs.author}</AvatarFallback>
-                    </Avatar> */}
+                    <div className="text-sm text-muted-foreground line-clamp-3">
+                      {blogs.author}
+                    </div>
                     <div>
-                      <p className="text-sm font-medium">{blogs.author}</p>
+                      <p className="text-sm text-muted-foreground line-clamp-3"></p>
                       <div className="flex items-center text-xs text-muted-foreground">
                         <CalendarIcon className="mr-1 h-3 w-3" />
-                        {blogs.date}
-                        <Clock3Icon className="ml-2 mr-1 h-3 w-3" />
-                        {blogs.tags}
+                        {formattedDates}
                       </div>
                     </div>
                   </div>
-                  <Button variant="outline" size="sm">
-                    Read More
-                  </Button>
+                  <Link
+                    href={`/blogs/${blogs.id}`}
+                    key={blogs.id}
+                    className="transition-transform"
+                  >
+                    {" "}
+                    <Button variant="outline" size="sm">
+                      Read More
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
             ))}
@@ -120,7 +159,7 @@ export default function BlogsPage(props: TBlogsPage) {
 export async function getStaticProps(): Promise<
   GetStaticPropsResult<TBlogsPage>
 > {
-  const blogs: Blogs[] = await getAllBlogs();
+  const blogs = await getAllBlogs();
 
   if (!blogs) {
     return {

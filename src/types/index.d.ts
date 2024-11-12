@@ -15,10 +15,9 @@ type Blogs = {
   title: string;
   content: string;
   author: string;
-  date: string;
   tags: string[];
   image: string;
-  seoMetadata: string;
+  createdAt: string;
 };
 
 type NewsLetter = {

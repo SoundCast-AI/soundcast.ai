@@ -16,4 +16,13 @@ const getAllBlogs = async (): Promise<Blogs[]> => {
   }
 };
 
-export { getAllBlogs };
+const getBlogById = async (id: string): Promise<Blogs | undefined> => {
+  try {
+    const response = await axiosBase.get(`/blog/get/${id}`);
+    return response.data as Blogs;
+  } catch (e) {
+    console.log("Error in fetching blog", e);
+  }
+};
+
+export { getAllBlogs, getBlogById };

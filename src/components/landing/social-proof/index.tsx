@@ -34,7 +34,7 @@ const SocialProof = () => {
   };
 
   return (
-    <div className={cn(`container mx-auto my-8`)}>
+    <div id="testimonials" className={cn(`container mx-auto my-8`)}>
       <div className={cn(`max-w-7xl mx-auto`)}>
         <section>
           <figure>

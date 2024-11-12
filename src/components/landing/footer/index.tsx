@@ -68,7 +68,7 @@ const Footer = () => {
         <div className={cn(`mb-14 flex items-center w-full`)}>
           <Image
             className={cn(`h-12 w-12 mr-4`)}
-            src="logo.svg"
+            src="/logo.svg"
             alt="logo"
             width={48}
             height={48}

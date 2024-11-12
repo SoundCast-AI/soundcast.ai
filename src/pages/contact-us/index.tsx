@@ -2,7 +2,10 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Phone, Mail } from "lucide-react";
+import {
+  // MapPin, Phone,
+  Mail,
+} from "lucide-react";
 import Page from "@/components/landing/page";
 import Button from "@/components/landing/button";
 
@@ -22,9 +25,7 @@ export default function ContactUs() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your server
     console.log("Form submitted:", formData);
-    // Reset form after submission
     setFormData({ name: "", email: "", message: "" });
   };
 
@@ -81,14 +82,14 @@ export default function ContactUs() {
               <CardTitle>Contact Information</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex items-center space-x-2">
+              {/* <div className="flex items-center space-x-2">
                 <MapPin className="text-primary" />
                 <span>123 Business Road, City, Country</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="text-primary" />
                 <span>+1 (555) 123-4567</span>
-              </div>
+              </div> */}
               <div className="flex items-center space-x-2">
                 <Mail className="text-primary" />
                 <span>vivekans2016@gmail.com</span>

@@ -16,7 +16,7 @@ type THomePageProps = {
   influencers: TInfluencer[];
 };
 
-export default function Home(props: THomePageProps) {
+export default function Home() {
   return (
     <Page>
       <NextSeo
@@ -28,7 +28,7 @@ export default function Home(props: THomePageProps) {
         <VideoSection />
         <ListSection />
         <FeatureSection />
-        <Personalities influencers={props.influencers ?? []} />
+        <Personalities />
         {/* <CasesSection /> */}
         <SocialProof />
         <PricingTable />
