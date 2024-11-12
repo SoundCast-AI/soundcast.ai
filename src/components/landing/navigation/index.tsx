@@ -31,14 +31,14 @@ const links: {
     label: `Features`,
     href: `/#features`,
   },
-  {
-    label: `Testimonials`,
-    href: `/#testimonials`,
-  },
-  {
-    label: `Pricing`,
-    href: `/#pricing`,
-  },
+  // {
+  //   label: `Testimonials`,
+  //   href: `/#testimonials`,
+  // },
+  // {
+  //   label: `Pricing`,
+  //   href: `/#pricing`,
+  // },
 ];
 
 const secondaryLinks: {
@@ -47,7 +47,7 @@ const secondaryLinks: {
   disabled?: boolean;
 }[] = [
   {
-    label: `Schedule a meet`,
+    label: `Talk to us`,
     href: `https://calendly.com/ck76`,
   },
   // {
@@ -186,12 +186,12 @@ const Navigation = () => {
           <div className={cn(`hidden md:block`)}>
             <div className={cn(`ml-4 flex items-center md:ml-6 gap-4`)}>
               <Link href={"https://calendly.com/ck76"} target="_blank">
-                <Button>Schedule a meet</Button>
+                <Button>Talk to us</Button>
               </Link>
 
               {/* <Button modifier="border-0 mr-2">Log in</Button> */}
               <Link href={"/characters"}>
-                <Button primary>Get started</Button>
+                <Button primary>Interact Now</Button>
               </Link>
             </div>
           </div>

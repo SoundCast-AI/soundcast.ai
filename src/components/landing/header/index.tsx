@@ -44,9 +44,9 @@ const Header = () => {
             <span className="text-gray-800">.ai</span>
           </h1>
           <h1 className={cn(`mt-10 text-gray-500  text-xl lg:text-3xl`)}>
-            Create lifelike AI voice replicas and assistants powered by
-            cutting-edge technology. Transform your communication with natural,
-            engaging AI voices.
+            Create lifelike AI replicas and assistants powered by cutting-edge
+            technology. Transform your communication with natural, engaging AI
+            agents.
           </h1>
           <div
             className={cn(
@@ -54,7 +54,7 @@ const Header = () => {
             )}
           >
             <Link href={"/characters"}>
-              <Button primary>Get started</Button>
+              <Button primary>Experience Now</Button>
             </Link>
 
             <span className={cn(`mx-2`)}>or</span>

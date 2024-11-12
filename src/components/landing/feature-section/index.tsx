@@ -12,7 +12,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { getAllInfluencers } from "@/lib/character-apis";
-import { PhoneCall, TabletSmartphone } from "lucide-react";
+import { PhoneCall, TabletSmartphone, Youtube } from "lucide-react";
+import { DiscordLogoIcon } from "@radix-ui/react-icons";
 
 const features = [
   {
@@ -32,6 +33,18 @@ const features = [
     title: "Phone Conversations",
     description:
       "Take your AI interactions beyond text. Engage in natural phone conversations with voice-enabled AI personalities.",
+  },
+  {
+    icon: <DiscordLogoIcon className="w-10 h-10" />,
+    title: "AI-Powered Discord Engagement",
+    description:
+      "Engage in AI interactions directly through Discord, enabling influencers and communities to integrate AI seamlessly into their channels. Experience dynamic conversations and enhanced engagement firsthand.",
+  },
+  {
+    icon: <Youtube size={50} />,
+    title: "Interactive AI for Your YouTube Channel",
+    description:
+      "Connect with AI through YouTube, allowing influencers and viewers to interact seamlessly within videos and live streams. Experience enriched content and real-time engagement firsthand.",
   },
 ];
 

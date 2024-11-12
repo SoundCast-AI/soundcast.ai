@@ -28,10 +28,10 @@ const resourceLinks = [
   { id: 3, name: `Tools`, href: `/` },
   { id: 4, name: `Case studies`, href: `/` },
   { id: 5, name: `Solutions`, href: `/` },
-  { id: 6, name: `FAQs`, href: `/` },
-  { id: 7, name: `Help Center`, href: `/` },
-  { id: 8, name: `Training`, href: `/` },
-  { id: 9, name: `Other resources`, href: `/` },
+  // { id: 6, name: `FAQs`, href: `/` },
+  // { id: 7, name: `Help Center`, href: `/` },
+  // { id: 8, name: `Training`, href: `/` },
+  // { id: 9, name: `Other resources`, href: `/` },
 ];
 
 const Footer = () => {
