@@ -23,47 +23,49 @@ const Header = () => {
   };
 
   return (
-    <header className={cn(`bg-white h-screen md:h-[50rem]`)}>
-      <div className={cn(`max-w-4xl mx-auto py-16 px-14 sm:px-6 lg:px-8`)}>
-        <h1
-          className={cn(
-            `font-sans font-bold text-4xl md:text-5xl lg:text-8xl text-center leading-snug text-gray-800`,
-            `bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent`
-          )}
-        >
-          SoundCast
-          <span className="text-gray-800">.ai</span>
-        </h1>
-        <div className={cn(`max-w-xl mx-auto`)}>
-          <p
+    <header
+      className={cn(
+        `flex justify-center items-center bg-white h-screen md:h-[50rem]`
+      )}
+    >
+      <div
+        className={cn(
+          `container mx-auto px-6 py-20 grid grid-rows-1 gap-4 md:gap-14 lg:grid-cols-2 lg:gap-8`
+        )}
+      >
+        <div className="">
+          <h1
             className={cn(
-              `mt-10 text-gray-500 text-center text-xl lg:text-3xl`
+              ` flex justify-center lg:justify-start  font-sans font-bold text-4xl md:text-5xl lg:text-8xl text-center leading-snug text-gray-800`,
+              `bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent`
             )}
           >
-            Making Voice Intelligent with AI
-          </p>
-        </div>
-        <div
-          className={cn(
-            `mt-10 flex justify-center items-center w-full mx-auto`
-          )}
-        >
-          <Link href={"/characters"}>
-            <Button primary>Get started</Button>
-          </Link>
+            SoundCast
+            <span className="text-gray-800">.ai</span>
+          </h1>
+          <h1 className={cn(`mt-10 text-gray-500  text-xl lg:text-3xl`)}>
+            Create lifelike AI voice replicas and assistants powered by
+            cutting-edge technology. Transform your communication with natural,
+            engaging AI voices.
+          </h1>
+          <div
+            className={cn(
+              `mt-10 flex justify-center items-center lg:justify-start  w-full mx-auto`
+            )}
+          >
+            <Link href={"/characters"}>
+              <Button primary>Get started</Button>
+            </Link>
 
-          <span className={cn(`mx-2`)}>or</span>
-          <Link href={"/contact-us"}>
-            {" "}
-            <Button>Contact us</Button>
-          </Link>
+            <span className={cn(`mx-2`)}>or</span>
+            <Link href={"/contact-us"}>
+              {" "}
+              <Button>Contact us</Button>
+            </Link>
+          </div>
         </div>
-        <p className="hidden sm:flex md:flex lg:flex text-center mt-10 text-gray-500 text-xl lg:text-2xl">
-          Empowering Conversations with AI-Driven Voice Agents From Influencers
-          to Customer Support – Discover Voice Agents Built for Connection
-        </p>
 
-        <div className="mt-8">
+        <div className="relative">
           {character && (
             <Card className="max-w-full h-full mx-auto overflow-hidden mb-4">
               <CardContent className="p-6">

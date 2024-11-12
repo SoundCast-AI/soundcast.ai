@@ -2,15 +2,17 @@ import { NextSeo } from "next-seo";
 import Page from "@/components/landing/page";
 import Header from "@/components/landing/header";
 import VideoSection from "@/components/landing/video-section";
-import ListSection from "@/components/landing/list-section";
-import FeatureSection, {
-  Personalities,
-} from "@/components/landing/feature-section";
+// import ListSection from "@/components/landing/list-section";
+import FeatureSection from "@/components/landing/feature-section";
 // import CasesSection from "@/components/landing/cases-section";
-import SocialProof from "@/components/landing/social-proof";
-import PricingTable from "@/components/landing/pricing-table";
+// import SocialProof from "@/components/landing/social-proof";
+// import PricingTable from "@/components/landing/pricing-table";
 import { GetStaticPropsResult } from "next";
 import { getAllInfluencers } from "@/lib/character-apis";
+import {
+  Personalities,
+  CommingSoon,
+} from "@/components/landing/feature-section";
 
 type THomePageProps = {
   influencers: TInfluencer[];
@@ -26,12 +28,13 @@ export default function Home() {
       <Header />
       <main>
         <VideoSection />
-        <ListSection />
-        <FeatureSection />
         <Personalities />
+        <FeatureSection />
+        <CommingSoon />
+        {/* <ListSection /> */}
         {/* <CasesSection /> */}
-        <SocialProof />
-        <PricingTable />
+        {/* <SocialProof /> */}
+        {/* <PricingTable /> */}
       </main>
     </Page>
   );

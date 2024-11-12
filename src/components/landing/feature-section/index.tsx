@@ -5,13 +5,14 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+  // CarouselNext,
+  // CarouselPrevious,
 } from "@/components/ui/carousel";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { getAllInfluencers } from "@/lib/character-apis";
+import { PhoneCall, TabletSmartphone } from "lucide-react";
 
 const features = [
   {
@@ -34,6 +35,21 @@ const features = [
   },
 ];
 
+const commingSoon = [
+  {
+    icon: <TabletSmartphone />,
+    title: "Offline GPT",
+    description:
+      "Run AI models locally on your device for enhanced privacy and offline access.",
+  },
+  {
+    icon: <PhoneCall />,
+    title: "AI Calling Assistant",
+    description:
+      "Hardware solution for seamless AI-powered voice calls and communication.",
+  },
+];
+
 export default function FeatureSection() {
   return (
     <section id="features" className="py-20 bg-white">
@@ -50,6 +66,30 @@ export default function FeatureSection() {
               <div className="text-4xl mb-4">{feature.icon}</div>
               <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
               <p className="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function CommingSoon() {
+  return (
+    <section id="features" className="py-20 bg-white ">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-16">
+          Currently Under Development
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {commingSoon.map((app, index) => (
+            <div
+              key={index}
+              className="p-6 border rounded-xl hover:shadow-lg transition-shadow"
+            >
+              <div className="text-4xl mb-4">{app.icon}</div>
+              <h3 className="text-xl font-bold mb-4">{app.title}</h3>
+              <p className="text-gray-600">{app.description}</p>
             </div>
           ))}
         </div>
@@ -114,8 +154,8 @@ export function Personalities() {
             ))}
           </CarouselContent>
 
-          <CarouselPrevious />
-          <CarouselNext />
+          {/* <CarouselPrevious /> */}
+          {/* <CarouselNext /> */}
         </Carousel>
       </div>
     </section>

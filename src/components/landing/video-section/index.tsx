@@ -24,11 +24,16 @@ const PlayButton = () => (
 const VideoSection = () => {
   return (
     <section
-      className={cn(`bg-gradient-to-b from-gray-50 to-white shadow-inner`)}
+      className={cn(
+        `bg-gradient-to-b from-gray-50 to-white shadow-inner mb-40`
+      )}
     >
       <div className={cn(`max-w-7xl mx-auto`)}>
         <div className={cn(`flex flex-col max-w-4xl mx-auto pt-28`)}>
           <div className={cn(`w-full`)}>
+            <h1 className="text-3xl font-bold text-gray-600 text-center mb-12">
+              AI Assistants in Action
+            </h1>
             <div className={cn(`relative shadow-2xl mx-6 lg:mx-0 `)}>
               <iframe
                 id="videoFrame"
