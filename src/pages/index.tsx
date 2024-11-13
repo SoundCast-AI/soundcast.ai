@@ -55,7 +55,7 @@ export async function getStaticProps(): Promise<
         influencers: featuredInfluencers,
       },
     };
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Error fetching influencers", error);
     return {
       props: {

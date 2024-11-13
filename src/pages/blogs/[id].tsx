@@ -68,7 +68,7 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
       })),
       fallback: false,
     };
-  } catch (e) {
+  } catch (e: unknown) {
     console.log("Error fetching Blogs", e);
 
     return {

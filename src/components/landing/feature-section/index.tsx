@@ -119,7 +119,6 @@ export function Personalities() {
       const featuredInfluencers = influencers.filter(
         (influencers) => influencers.featured === true
       );
-      console.log(featuredInfluencers);
       setFeatured(featuredInfluencers);
     }
     getAllInflencers();

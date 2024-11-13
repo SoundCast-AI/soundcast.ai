@@ -8,9 +8,8 @@ export const axiosBase = axios.create({
 const newsLetter = async (email: string): Promise<NewsLetter> => {
   try {
     const response = await axiosBase.post(`/user/create`, { email });
-    console.log("response", response);
     return response.data as NewsLetter;
-  } catch (e) {
+  } catch (e: unknown) {
     console.log("Error in fetching newsletter", e);
     return {} as NewsLetter;
   }

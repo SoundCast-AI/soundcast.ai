@@ -40,7 +40,6 @@ const Footer = () => {
   const handleSubscribe = async () => {
     try {
       const response = await newsLetter(email);
-      console.log("response", response);
       toast({
         type: "foreground",
         title: "Subscribed successfully",

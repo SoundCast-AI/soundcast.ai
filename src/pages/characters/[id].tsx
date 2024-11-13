@@ -65,8 +65,11 @@ export default function ChatPage(props: TInfluencer) {
           timestamp: new Date().toLocaleTimeString(),
         },
       ]);
-    } catch (error) {
-      console.error(error);
+    } catch (error: unknown) {
+      console.error("Error sending message", error);
+      toast({
+        description: "Something went wrong, please try again later.",
+      });
     } finally {
       setIsLoading(false);
     }
@@ -182,7 +185,7 @@ export async function getStaticPaths(): Promise<GetStaticPathsResult> {
       })),
       fallback: false,
     };
-  } catch (e) {
+  } catch (e: unknown) {
     console.log("Error fetching characters", e);
 
     return {

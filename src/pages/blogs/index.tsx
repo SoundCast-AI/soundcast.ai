@@ -32,11 +32,8 @@ export default function BlogsPage(props: TBlogsPage) {
   const [blogContent, setBlogContent] = useState<string>("");
   const [formattedDates, setFormattedDates] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredBlogs, setFilteredBlogs] = useState(props.blogs);
+  // const [filteredBlogs, setFilteredBlogs] = useState(props.blogs);
 
-  console.log("blog conent", blogContent);
-
-  // Handle input change
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
@@ -59,7 +56,7 @@ export default function BlogsPage(props: TBlogsPage) {
     });
 
     setFormattedDates(dates);
-    setFilteredBlogs(filtered);
+    // setFilteredBlogs(filtered);
   }, [searchQuery, props.blogs]);
 
   return (

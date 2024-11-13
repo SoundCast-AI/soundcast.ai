@@ -11,7 +11,6 @@ const Header = () => {
   useEffect(() => {
     const fetchInfluencer = async () => {
       const influencer = await getInfluencerByID("2");
-      console.log(influencer);
       setCharacter(influencer);
     };
 
