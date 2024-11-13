@@ -129,7 +129,7 @@ const MobileMenu = () => (
     <div className={cn(`pt-4 pb-3 border-t border-gray-400`)}>
       <div className={cn(`px-2 space-y-1`)}>
         {secondaryLinks.map((link: Link) => (
-          <a
+          <Link
             key={`mobile-${link.label}`}
             href={link.href}
             className={cn(
@@ -137,7 +137,7 @@ const MobileMenu = () => (
             )}
           >
             {link.label}
-          </a>
+          </Link>
         ))}
       </div>
     </div>
@@ -168,7 +168,7 @@ const Navigation = () => {
             <div className={cn(`hidden md:block`)}>
               <div className={cn(`ml-10 flex items-baseline space-x-4`)}>
                 {links.map((link) => (
-                  <a
+                  <Link
                     key={link.label}
                     href={link.href}
                     className={cn(
@@ -177,7 +177,7 @@ const Navigation = () => {
                     )}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
