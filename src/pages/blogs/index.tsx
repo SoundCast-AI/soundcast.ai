@@ -19,8 +19,6 @@ import Image from "next/image";
 import { GetStaticPropsResult } from "next";
 import { NextSeo } from "next-seo";
 import Page from "@/components/landing/page";
-import { useEffect, useState } from "react";
-import { format } from "date-fns";
 import Link from "next/link";
 import { getAllBlogs } from "@/lib/blogs-apis";
 
@@ -29,36 +27,6 @@ type TBlogsPage = {
 };
 
 export default function BlogsPage(props: TBlogsPage) {
-  const [blogContent, setBlogContent] = useState<string>("");
-  const [formattedDates, setFormattedDates] = useState<string[]>([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  // const [filteredBlogs, setFilteredBlogs] = useState(props.blogs);
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
-  };
-
-  useEffect(() => {
-    const filtered = props.blogs.filter(
-      (blog) =>
-        blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        blog.content.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-
-    const allContent = filtered.map((blog) => blog.content).join(" ");
-    setBlogContent(allContent);
-
-    const dates = filtered.map((blog) => {
-      const convertDate = new Date(blog.createdAt);
-      return isNaN(convertDate.getTime())
-        ? "Invalid date"
-        : format(convertDate, "dd MMM yyyy");
-    });
-
-    setFormattedDates(dates);
-    // setFilteredBlogs(filtered);
-  }, [searchQuery, props.blogs]);
-
   return (
     <Page>
       <NextSeo title="SoundCast.ai" description="Explore our blogs" />
@@ -67,12 +35,7 @@ export default function BlogsPage(props: TBlogsPage) {
           <h1 className="text-3xl font-bold mb-8">Blogs</h1>
 
           <div className="mb-6 flex flex-col sm:flex-row gap-4">
-            <Input
-              className="flex-grow"
-              placeholder="Search blogs..."
-              onChange={handleSearchChange}
-              value={searchQuery}
-            />
+            <Input className="flex-grow" placeholder="Search blogs..." />
             <Select>
               <SelectTrigger className="w-full sm:w-[180px]">
                 <SelectValue placeholder="Category" />
@@ -116,7 +79,7 @@ export default function BlogsPage(props: TBlogsPage) {
                   <div
                     className="text-sm text-muted-foreground line-clamp-3"
                     dangerouslySetInnerHTML={{
-                      __html: blogContent,
+                      __html: blogs.content,
                     }}
                   ></div>
                 </CardContent>
@@ -129,7 +92,11 @@ export default function BlogsPage(props: TBlogsPage) {
                       <p className="text-sm text-muted-foreground line-clamp-3"></p>
                       <div className="flex items-center text-xs text-muted-foreground">
                         <CalendarIcon className="mr-1 h-3 w-3" />
-                        {formattedDates}
+                        {new Date(blogs.createdAt).toLocaleDateString("en-GB", {
+                          day: "2-digit",
+                          month: "short",
+                          year: "numeric",
+                        })}
                       </div>
                     </div>
                   </div>
