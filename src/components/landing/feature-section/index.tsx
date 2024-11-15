@@ -1,19 +1,19 @@
-// import Check from "@/constants/svg/check.svg";
-// import { cn } from "@/lib/utils";
 import Image from "next/image";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  // CarouselNext,
-  // CarouselPrevious,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
-import { getAllInfluencers } from "@/lib/character-apis";
 import { PhoneCall, TabletSmartphone, Youtube } from "lucide-react";
 import { DiscordLogoIcon } from "@radix-ui/react-icons";
+
+type TFeaturesPageProps = {
+  featuredCharacters: TInfluencer[];
+};
 
 const features = [
   {
@@ -111,18 +111,7 @@ export function CommingSoon() {
   );
 }
 
-export function Personalities() {
-  const [featured, setFeatured] = useState<TInfluencer[]>([]);
-  useEffect(() => {
-    async function getAllInflencers() {
-      const influencers = await getAllInfluencers();
-      const featuredInfluencers = influencers.filter(
-        (influencers) => influencers.featured === true
-      );
-      setFeatured(featuredInfluencers);
-    }
-    getAllInflencers();
-  }, []);
+export function Personalities(props: TFeaturesPageProps) {
   return (
     <section id="personalities" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
@@ -132,7 +121,7 @@ export function Personalities() {
 
         <Carousel className="w-full">
           <CarouselContent>
-            {featured.map((personality, index) => (
+            {props.featuredCharacters.map((personality, index) => (
               <CarouselItem
                 key={index}
                 className="md:basis-1/2 lg:basis-1/4 h-full py-4"
@@ -165,9 +154,10 @@ export function Personalities() {
               </CarouselItem>
             ))}
           </CarouselContent>
-
-          {/* <CarouselPrevious /> */}
-          {/* <CarouselNext /> */}
+          <div className="absolute bottom-[-4] left-14 right-14 flex justify-between p-2 md:static md:left-16 md:right-16 md:top-auto md:bottom-auto md:flex md:justify-between">
+            <CarouselPrevious className="mt-2" />
+            <CarouselNext className="mt-2" />
+          </div>
         </Carousel>
       </div>
     </section>

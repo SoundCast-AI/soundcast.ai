@@ -8,7 +8,7 @@ import FeatureSection from "@/components/landing/feature-section";
 // import SocialProof from "@/components/landing/social-proof";
 // import PricingTable from "@/components/landing/pricing-table";
 import { GetStaticPropsResult } from "next";
-import { getAllInfluencers } from "@/lib/character-apis";
+import { getAllInfluencers, getInfluencerByID } from "@/lib/character-apis";
 import {
   Personalities,
   CommingSoon,
@@ -16,19 +16,20 @@ import {
 
 type THomePageProps = {
   influencers: TInfluencer[];
+  influencerById: TInfluencer | null;
 };
 
-export default function Home() {
+export default function Home({ influencers, influencerById }: THomePageProps) {
   return (
     <Page>
       <NextSeo
         title="SoundCast.ai"
         description="Intelligent Voice with SoundCast.ai"
       />
-      <Header />
+      <Header characterWithId={influencerById} />
       <main>
         <VideoSection />
-        <Personalities />
+        <Personalities featuredCharacters={influencers} />
         <FeatureSection />
         <CommingSoon />
         {/* <ListSection /> */}
@@ -50,9 +51,12 @@ export async function getStaticProps(): Promise<
       (influencer) => influencer.featured
     );
 
+    const influencerById: TInfluencer | null = await getInfluencerByID("2");
+
     return {
       props: {
         influencers: featuredInfluencers,
+        influencerById,
       },
     };
   } catch (error: unknown) {
@@ -60,6 +64,7 @@ export async function getStaticProps(): Promise<
     return {
       props: {
         influencers: [],
+        influencerById: null,
       },
     };
   }

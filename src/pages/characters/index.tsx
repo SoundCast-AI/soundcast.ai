@@ -67,30 +67,34 @@ export default function ExplorePage(props: TExplorePageProps) {
               <Link
                 href={`/characters/${character.id}`}
                 key={character.id}
-                className="transition-transform"
+                className="transition-transform hover:scale-105"
               >
-                <Card className="">
-                  <CardHeader className="flex flex-row items-center gap-4 ">
-                    <Avatar className="w-12 h-12">
-                      <AvatarImage
-                        src={character.imageUrl}
-                        alt={character.name}
-                      />
-                      <AvatarFallback>
-                        {character.name.slice(0, 2)}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <CardTitle>{character.name}</CardTitle>
-                      <p className="text-sm text-muted-foreground">
-                        {character.tags.join(", ")}
-                      </p>
+                <Card className="flex flex-col h-full overflow-hidden">
+                  <CardHeader className="flex-shrink-0">
+                    <div className="flex items-center gap-4">
+                      <Avatar className="w-12 h-12">
+                        <AvatarImage
+                          src={character.imageUrl}
+                          alt={character.name}
+                        />
+                        <AvatarFallback>
+                          {character.name.slice(0, 2)}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <CardTitle className="text-lg">
+                          {character.name}
+                        </CardTitle>
+                        <p className="text-sm text-muted-foreground">
+                          {character.tags.join(", ")}
+                        </p>
+                      </div>
                     </div>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex-grow">
                     <p className="text-sm">{character.description}</p>
                   </CardContent>
-                  <CardFooter>
+                  <CardFooter className="flex-shrink-0">
                     <Button className="w-full">Chat Now</Button>
                   </CardFooter>
                 </Card>

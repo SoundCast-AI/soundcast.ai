@@ -1,22 +1,14 @@
 import Button from "@/components/landing/button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { getInfluencerByID } from "@/lib/character-apis";
-import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
-const Header = () => {
-  const [character, setCharacter] = useState<TInfluencer | null>(null);
 
-  useEffect(() => {
-    const fetchInfluencer = async () => {
-      const influencer = await getInfluencerByID("2");
-      setCharacter(influencer);
-    };
+type PageProps = {
+  characterWithId: TInfluencer | null;
+};
 
-    fetchInfluencer();
-  }, []);
-
+const Header = ({ characterWithId }: PageProps) => {
   const handleScrollToFeature = () => {
     document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -65,7 +57,7 @@ const Header = () => {
         </div>
 
         <div className="relative">
-          {character && (
+          {characterWithId && (
             <Card className="max-w-full h-full mx-auto overflow-hidden mb-4">
               <CardContent className="p-6">
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 h-[21rem] md:h-[15rem] lg:h-[15rem]">
@@ -73,21 +65,21 @@ const Header = () => {
                     <Image
                       width={192}
                       height={192}
-                      src={character.imageUrl}
-                      alt={`AI Assistant ${character.name}`}
+                      src={characterWithId.imageUrl}
+                      alt={`AI Assistant ${characterWithId.name}`}
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="flex-1 text-center md:text-left">
                     <h3 className="text-xl md:text-2xl font-bold mb-2">
-                      {character.name}
+                      {characterWithId.name}
                     </h3>
                     <p className="text-gray-600 mb-4 text-sm md:text-base">
-                      {character.description}
+                      {characterWithId.description}
                     </p>
                     <div className="flex gap-4">
                       <Button>
-                        <Link href={`/characters/${character.id}`}>
+                        <Link href={`/characters/${characterWithId.id}`}>
                           Chat Now
                         </Link>
                       </Button>
