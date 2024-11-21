@@ -15,6 +15,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Phone, Send } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { toast } from "@/hooks/use-toast";
+import Head from "next/head";
 
 interface TMessage {
   sender: string;
@@ -76,74 +77,92 @@ export default function ChatPage(props: TInfluencer) {
   }
 
   return (
-    <div className="flex flex-col md:flex-row h-screen bg-background">
-      {/* Left Panel - Bot Profile */}
-      <div className="w-full md:w-1/4 p-4 bg-secondary">
-        <div className="flex flex-col items-center space-y-4">
-          <Avatar className="w-24 h-24">
-            <AvatarImage src={props.imageUrl} alt="Bot Avatar" />
-            <AvatarFallback>BOT</AvatarFallback>
-          </Avatar>
-          <h2 className="text-2xl font-bold">AI Replica</h2>
-          <p className="text-center text-muted-foreground">{props.name}</p>
+    <div>
+      <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-2EFS549HWS"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2EFS549HWS');
+            `,
+          }}
+        />
+      </Head>
+      <div className="flex flex-col md:flex-row h-screen bg-background">
+        {/* Left Panel - Bot Profile */}
+        <div className="w-full md:w-1/4 p-4 bg-secondary">
+          <div className="flex flex-col items-center space-y-4">
+            <Avatar className="w-24 h-24">
+              <AvatarImage src={props.imageUrl} alt="Bot Avatar" />
+              <AvatarFallback>BOT</AvatarFallback>
+            </Avatar>
+            <h2 className="text-2xl font-bold">AI Replica</h2>
+            <p className="text-center text-muted-foreground">{props.name}</p>
+          </div>
         </div>
-      </div>
 
-      {/* Right Panel - Chat Interface */}
-      <div className="flex flex-col w-full md:w-3/4">
-        {/* Chat Messages */}
-        <ScrollArea className="flex-grow p-4">
-          {messages.map((message, index) => (
-            <div
-              key={index}
-              className={`flex ${
-                message.sender === "user" ? "justify-end" : "justify-start"
-              } mb-4`}
-            >
+        {/* Right Panel - Chat Interface */}
+        <div className="flex flex-col w-full md:w-3/4">
+          {/* Chat Messages */}
+          <ScrollArea className="flex-grow p-4">
+            {messages.map((message, index) => (
               <div
-                className={`max-w-[70%] p-3 rounded-lg ${
-                  message.sender === "user"
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-secondary"
-                }`}
+                key={index}
+                className={`flex ${
+                  message.sender === "user" ? "justify-end" : "justify-start"
+                } mb-4`}
               >
-                {message.content}
+                <div
+                  className={`max-w-[70%] p-3 rounded-lg ${
+                    message.sender === "user"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-secondary"
+                  }`}
+                >
+                  {message.content}
+                </div>
               </div>
-            </div>
-          ))}
-        </ScrollArea>
+            ))}
+          </ScrollArea>
 
-        {/* Message Input */}
-        <div className="p-4 border-t">
-          <div className="flex space-x-2">
-            <Input
-              placeholder="Type your message..."
-              value={inputMessage}
-              onChange={(e) => setInputMessage(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-              className="flex-grow"
-              disabled={isLoading}
-            />
-            <Button
-              size="icon"
-              variant="outline"
-              onClick={() => {
-                toast({
-                  description: "Call support coming soon...",
-                });
-              }}
-            >
-              <Phone className="h-4 w-4" />
-              <span className="sr-only">Call</span>
-            </Button>
-            <Button
-              size="icon"
-              onClick={handleSendMessage}
-              disabled={isLoading}
-            >
-              <Send className="h-4 w-4" />
-              <span className="sr-only">Send</span>
-            </Button>
+          {/* Message Input */}
+          <div className="p-4 border-t">
+            <div className="flex space-x-2">
+              <Input
+                placeholder="Type your message..."
+                value={inputMessage}
+                onChange={(e) => setInputMessage(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+                className="flex-grow"
+                disabled={isLoading}
+              />
+              <Button
+                size="icon"
+                variant="outline"
+                onClick={() => {
+                  toast({
+                    description: "Call support coming soon...",
+                  });
+                }}
+              >
+                <Phone className="h-4 w-4" />
+                <span className="sr-only">Call</span>
+              </Button>
+              <Button
+                size="icon"
+                onClick={handleSendMessage}
+                disabled={isLoading}
+              >
+                <Send className="h-4 w-4" />
+                <span className="sr-only">Send</span>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

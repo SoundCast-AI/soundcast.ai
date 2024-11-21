@@ -21,6 +21,7 @@ import { NextSeo } from "next-seo";
 import Page from "@/components/landing/page";
 import Link from "next/link";
 import { getAllBlogs } from "@/lib/blogs-apis";
+import Head from "next/head";
 
 type TBlogsPage = {
   blogs: Blogs[];
@@ -30,6 +31,22 @@ export default function BlogsPage(props: TBlogsPage) {
   return (
     <Page>
       <NextSeo title="SoundCast.ai" description="Explore our blogs" />
+      <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-2EFS549HWS"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2EFS549HWS');
+            `,
+          }}
+        />
+      </Head>
       <main>
         <div className="container mx-auto px-4 py-8 mb-24">
           <h1 className="text-3xl font-bold mb-8">Blogs</h1>

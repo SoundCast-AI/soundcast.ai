@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import Page from "@/components/landing/page";
 import Button from "@/components/landing/button";
+import Head from "next/head";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -30,6 +31,23 @@ export default function ContactUs() {
 
   return (
     <Page>
+      <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-2EFS549HWS"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2EFS549HWS');
+            `,
+          }}
+        />
+      </Head>
+
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold text-center mb-8">Contact Us</h1>
 

@@ -20,6 +20,7 @@ import { GetStaticPropsResult } from "next";
 import { getAllInfluencers } from "@/lib/character-apis";
 import { NextSeo } from "next-seo";
 import Page from "@/components/landing/page";
+import Head from "next/head";
 
 type TExplorePageProps = {
   characters: TInfluencer[];
@@ -32,6 +33,22 @@ export default function ExplorePage(props: TExplorePageProps) {
         title="SoundCast.ai"
         description="Explore our AI Personalities"
       />
+      <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-2EFS549HWS"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2EFS549HWS');
+            `,
+          }}
+        />
+      </Head>
       <main>
         <div className="container mx-auto px-4 py-8 mb-24">
           <h1 className="text-3xl font-bold mb-8">Explore AI Replicas</h1>
