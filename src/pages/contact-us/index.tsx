@@ -9,6 +9,7 @@ import {
 import Page from "@/components/landing/page";
 import Button from "@/components/landing/button";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -31,6 +32,7 @@ export default function ContactUs() {
 
   return (
     <Page>
+      <NextSeo title="SoundCast.ai" description="Contact Us" />
       <Head>
         <script
           async
@@ -47,7 +49,6 @@ export default function ContactUs() {
           }}
         />
       </Head>
-
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold text-center mb-8">Contact Us</h1>
 

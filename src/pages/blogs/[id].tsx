@@ -10,10 +10,13 @@ import { getAllBlogs, getBlogById } from "@/lib/blogs-apis";
 import Image from "next/image";
 import Page from "@/components/landing/page";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 
 export default function BlogPostDetail(props: Blogs) {
   return (
     <Page>
+      <NextSeo title="SoundCast.ai" description="Blogs Page" />
+
       <Head>
         <script
           async

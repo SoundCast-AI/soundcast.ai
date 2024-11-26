@@ -16,6 +16,7 @@ import { Phone, Send } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { toast } from "@/hooks/use-toast";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 
 interface TMessage {
   sender: string;
@@ -78,6 +79,10 @@ export default function ChatPage(props: TInfluencer) {
 
   return (
     <div>
+      <NextSeo
+        title="SoundCast.ai"
+        description="Explore our AI Personalities"
+      />
       <Head>
         <script
           async
