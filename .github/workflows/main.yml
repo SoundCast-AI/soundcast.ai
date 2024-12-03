@@ -26,17 +26,21 @@ jobs:
       - name: Install PNPM
         run: |
           npm install -g pnpm
-          echo "::add-path::$(npm config get prefix)/bin"
+          echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
 
-      # Step 4: Install Dependencies
+      # Step 4: Verify PNPM Installation
+      - name: Verify PNPM
+        run: pnpm --version
+
+      # Step 5: Install Dependencies
       - name: Install Dependencies
         run: pnpm install
 
-      # Step 5: Build Next.js App
+      # Step 6: Build Next.js App
       - name: Build Next.js
         run: pnpm build
 
-      # Step 6: Transfer Build to AWS EC2
+      # Step 7: Transfer Build to AWS EC2
       - name: Deploy to EC2
         uses: appleboy/scp-action@v0.1.3  # Use a valid version
         with:
@@ -46,7 +50,7 @@ jobs:
           source: './out/*'
           target: '/var/www/html/'
 
-      # Step 7: Restart Application on EC2
+      # Step 8: Restart Application on EC2
       - name: Restart Nginx
         uses: appleboy/ssh-action@v0.1.5  # Use a valid version
         with:
