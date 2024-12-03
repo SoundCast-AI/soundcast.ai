@@ -21,11 +21,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'pnpm'
 
       # Step 3: Install PNPM
       - name: Install PNPM
-        run: npm install -g pnpm
+        run: |
+          npm install -g pnpm
+          echo "::add-path::$(npm config get prefix)/bin"
 
       # Step 4: Install Dependencies
       - name: Install Dependencies
